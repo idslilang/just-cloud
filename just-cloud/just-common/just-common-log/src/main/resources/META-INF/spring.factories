@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+    com.cloud.just.common.log.LogAutoConfiguration
+org.springframework.boot.env.EnvironmentPostProcessor=\
+    com.cloud.just.common.log.init.ApplicationLoggerInitializer

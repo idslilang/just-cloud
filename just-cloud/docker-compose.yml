@@ -1,0 +1,93 @@
+version: '2'
+services:
+  just-mysql:
+    build:
+      context: ./db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    restart: always
+    container_name: just-mysql
+    image: just-mysql
+    ports:
+      - 3306:3306
+
+  just-redis:
+    image: redis:6.0
+    ports:
+      - 6379:6379
+    restart: always
+    container_name: just-redis
+    hostname: just-redis
+
+  just-register:
+    build:
+      context: ./just-register
+    restart: always
+    ports:
+      - 8848:8848
+    container_name: just-register
+    hostname: just-register
+    image: just-register
+
+  just-gateway:
+    build:
+      context: ./just-gateway
+    restart: always
+    ports:
+      - 9999:9999
+    container_name: just-gateway
+    hostname: just-gateway
+    image: just-gateway
+
+  just-auth:
+    build:
+      context: ./just-auth
+    restart: always
+    container_name: just-auth
+    hostname: just-auth
+    image: just-auth
+
+  just-upms:
+    build:
+      context: ./just-upms/just-upms-biz
+    restart: always
+    container_name: just-upms
+    hostname: just-upms
+    image: just-upms
+
+  just-monitor:
+    build:
+      context: ./just-visual/just-monitor
+    restart: always
+    ports:
+      - 5001:5001
+    container_name: just-monitor
+    hostname: just-monitor
+    image: just-monitor
+
+  just-sentinel:
+    build:
+      context: ./just-visual/just-sentinel-dashboard
+    restart: always
+    image: just-sentinel
+    container_name: just-sentinel
+    ports:
+      - 5003:5003
+
+  just-codegen:
+    build:
+      context: ./just-visual/just-codegen
+    restart: always
+    container_name: just-codegen
+    hostname: just-codegen
+    image: just-codegen
+
+  just-job:
+    build:
+      context: ./just-visual/just-xxl-job-admin
+    restart: always
+    container_name: just-job
+    hostname: just-job
+    image: just-job
+    ports:
+      - 5004:5004
