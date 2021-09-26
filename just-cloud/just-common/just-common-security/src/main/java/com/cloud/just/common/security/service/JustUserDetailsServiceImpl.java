@@ -70,6 +70,7 @@ public class JustUserDetailsServiceImpl implements UserDetailsService {
 		}
 
 		R<UserInfo> result = remoteUserService.info(username, SecurityConstants.FROM_IN);
+
 		UserDetails userDetails = getUserDetails(result);
 		if (cache != null) {
 			cache.put(username, userDetails);

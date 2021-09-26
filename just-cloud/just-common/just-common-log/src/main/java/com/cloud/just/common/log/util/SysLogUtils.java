@@ -27,6 +27,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.web.authentication.www.BasicAuthenticationConverter;
+import org.springframework.util.StringUtils;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -45,8 +46,10 @@ public class SysLogUtils {
 		HttpServletRequest request = ((ServletRequestAttributes) Objects
 				.requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
 		SysLog sysLog = new SysLog();
-		sysLog.setCreateBy(Objects.requireNonNull(getUsername()));
-		sysLog.setUpdateBy(Objects.requireNonNull(getUsername()));
+		if (getUsername() != null) {
+			sysLog.setCreateBy(Objects.requireNonNull(getUsername()));
+			sysLog.setUpdateBy(Objects.requireNonNull(getUsername()));
+		}
 		sysLog.setType(LogTypeEnum.NORMAL.getType());
 		sysLog.setRemoteAddr(ServletUtil.getClientIP(request));
 		sysLog.setRequestUri(URLUtil.getPath(request.getRequestURI()));
@@ -59,6 +62,7 @@ public class SysLogUtils {
 
 	/**
 	 * 获取客户端
+	 *
 	 * @return clientId
 	 */
 	private String getClientId(HttpServletRequest request) {
@@ -80,6 +84,7 @@ public class SysLogUtils {
 
 	/**
 	 * 获取用户名称
+	 *
 	 * @return username
 	 */
 	private String getUsername() {
