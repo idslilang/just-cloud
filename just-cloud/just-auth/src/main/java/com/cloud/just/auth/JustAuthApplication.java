@@ -17,6 +17,7 @@
 package com.cloud.just.auth;
 
 import com.cloud.just.common.feign.annotation.EnableJustFeignClients;
+import com.cloud.just.common.security.annotation.EnableJustResourceServer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;

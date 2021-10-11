@@ -136,6 +136,7 @@ export default {
           this.$store
             .dispatch("LoginByUsername", this.loginForm)
             .then(() => {
+              console.log(this.tagWel.value)
               this.$router.push({ path: this.tagWel.value });
             })
             .catch(() => {
