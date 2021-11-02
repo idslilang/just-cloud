@@ -1,5 +1,5 @@
 server:
-  port: 8002
+  port: 8001
 
 spring:
   application:
@@ -16,3 +16,13 @@ spring:
   profiles:
     active: @profiles.active@
 
+# sa-token配置
+sa-token:
+  # token名称 (同时也是cookie名称)
+  token-name: satoken-server
+  # OAuth2.0 配置
+  oauth2:
+    is-code: true
+    is-implicit: true
+    is-password: true
+    is-client: true

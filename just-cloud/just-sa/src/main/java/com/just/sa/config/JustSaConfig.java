@@ -1,6 +1,7 @@
 package com.just.sa.config;
 
 import cn.dev33.satoken.oauth2.logic.SaOAuth2Template;
+import cn.dev33.satoken.oauth2.model.AccessTokenModel;
 import cn.dev33.satoken.oauth2.model.SaClientModel;
 import org.springframework.stereotype.Component;
 
@@ -25,6 +26,16 @@ public class JustSaConfig extends SaOAuth2Template {
 					.setContractScope("userinfo");
 		}
 		return null;
+	}
+
+
+	public AccessTokenModel generateAccessToken(String code) {
+
+		// 1、先校验
+		AccessTokenModel at = super.generateAccessToken(code);
+
+		// 6、返回 Access-Token
+		return at;
 	}
 
 	// 根据ClientId 和 LoginId 获取openid
