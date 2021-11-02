@@ -1,0 +1,509 @@
+{
+	"info": {
+		"_postman_id": "b7d9af05-8e71-4bb4-9ddf-df52ad0c0d63",
+		"name": "pig",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "密码模式获取token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic cGlnOnBpZw==",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://just-gateway:9999/auth/oauth/token?username=admin&password=LFEt60GoMTj5%2FmQQ7HjJeA%3D%3D&grant_type=password&scope=server",
+					"protocol": "http",
+					"host": [
+						"just-gateway"
+					],
+					"port": "9999",
+					"path": [
+						"auth",
+						"oauth",
+						"token"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "admin"
+						},
+						{
+							"key": "password",
+							"value": "LFEt60GoMTj5%2FmQQ7HjJeA%3D%3D",
+							"description": "密文 123456  "
+						},
+						{
+							"key": "grant_type",
+							"value": "password"
+						},
+						{
+							"key": "scope",
+							"value": "server"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取授权码",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic cGlnOnBpZw==",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Cookie",
+						"value": "JSESSIONID=kiKWl9_UlRjg3yjvXSq60VCsOqzhmfP0uNHBSjpj",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://just-gateway:9999/auth/oauth/authorize?client_id=pig&response_type=code&redirect_uri=https://segmentfault.com/&username=admin&password=LFEt60GoMTj5%2FmQQ7HjJeA%3D%3D",
+					"protocol": "http",
+					"host": [
+						"just-gateway"
+					],
+					"port": "9999",
+					"path": [
+						"auth",
+						"oauth",
+						"authorize"
+					],
+					"query": [
+						{
+							"key": "client_id",
+							"value": "pig"
+						},
+						{
+							"key": "response_type",
+							"value": "code"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "https://segmentfault.com/"
+						},
+						{
+							"key": "username",
+							"value": "admin"
+						},
+						{
+							"key": "password",
+							"value": "LFEt60GoMTj5%2FmQQ7HjJeA%3D%3D"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取授权码 服务端",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic cGlnOnBpZw==",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Cookie",
+						"value": "JSESSIONID=kiKWl9_UlRjg3yjvXSq60VCsOqzhmfP0uNHBSjpj",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/oauth/authorize?client_id=pig&response_type=code&redirect_uri=https://segmentfault.com/&username=admin&password=LFEt60GoMTj5%2FmQQ7HjJeA%3D%3D",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"oauth",
+						"authorize"
+					],
+					"query": [
+						{
+							"key": "client_id",
+							"value": "pig"
+						},
+						{
+							"key": "response_type",
+							"value": "code"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "https://segmentfault.com/"
+						},
+						{
+							"key": "username",
+							"value": "admin"
+						},
+						{
+							"key": "password",
+							"value": "LFEt60GoMTj5%2FmQQ7HjJeA%3D%3D"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "简单模式",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic cGlnOnBpZw==",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/oauth/authorize?client_id=pig&response_type=token&redirect_uri=https://segmentfault.com/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"oauth",
+						"authorize"
+					],
+					"query": [
+						{
+							"key": "client_id",
+							"value": "pig"
+						},
+						{
+							"key": "response_type",
+							"value": "token"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "https://segmentfault.com/"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "客户端模式",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic cGlnOnBpZw==",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://just-gateway:9999/auth/oauth/token?grant_type=client_credentials",
+					"protocol": "http",
+					"host": [
+						"just-gateway"
+					],
+					"port": "9999",
+					"path": [
+						"auth",
+						"oauth",
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "登录",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic cGlnOnBpZw==",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "授权码模式",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic cGlnOnBpZw==",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://just-gateway:9999/auth/oauth/token?grant_type=authorization_code&code=MHP1MW&redirect_uri=https://segmentfault.com/",
+					"protocol": "http",
+					"host": [
+						"just-gateway"
+					],
+					"port": "9999",
+					"path": [
+						"auth",
+						"oauth",
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "authorization_code"
+						},
+						{
+							"key": "code",
+							"value": "MHP1MW"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "https://segmentfault.com/"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "刷新token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic cGlnOnBpZw=="
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "scope",
+							"value": "server",
+							"type": "text"
+						},
+						{
+							"key": "refresh_token",
+							"value": "b4012068-f417-499a-a03a-0cc749ed7eb5",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "refresh_token"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://just-gateway:9999/auth/oauth/token",
+					"protocol": "http",
+					"host": [
+						"just-gateway"
+					],
+					"port": "9999",
+					"path": [
+						"auth",
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "检验token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic cGlnOnBpZw=="
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "scope",
+							"value": "server",
+							"type": "text"
+						},
+						{
+							"key": "refresh_token",
+							"value": "7687e736-6f07-46f4-b841-a739dcd871f5",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://just-gateway:9999/auth/oauth/check_token?token=921ba981-c575-42cf-98d2-0393c621c1a8",
+					"protocol": "http",
+					"host": [
+						"just-gateway"
+					],
+					"port": "9999",
+					"path": [
+						"auth",
+						"oauth",
+						"check_token"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "921ba981-c575-42cf-98d2-0393c621c1a8"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
