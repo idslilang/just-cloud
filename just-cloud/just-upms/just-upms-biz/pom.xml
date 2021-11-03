@@ -36,15 +36,15 @@
 			<artifactId>just-upms-api</artifactId>
 		</dependency>
 		<!--安全模块-->
-		<dependency>
-			<groupId>com.cloud</groupId>
-			<artifactId>just-common-security</artifactId>
-		</dependency>
-
 		<!--<dependency>-->
 			<!--<groupId>com.cloud</groupId>-->
-			<!--<artifactId>just-sa-security</artifactId>-->
+			<!--<artifactId>just-common-security</artifactId>-->
 		<!--</dependency>-->
+
+		<dependency>
+			<groupId>com.cloud</groupId>
+			<artifactId>just-common-sasecurity</artifactId>
+		</dependency>
 
 		<!--日志处理-->
 		<dependency>
