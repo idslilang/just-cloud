@@ -25,13 +25,13 @@ export const loginByUsername = (username, password, code, randomStr) => {
   const grant_type = 'password'
 
   return request({
-    url: '/auth/oauth/token',
+    url: '/sa/oauth2/token',
     headers: {
       isToken: false,
       Authorization: 'Basic cGlnOnBpZw=='
     },
     method: 'post',
-    params: {username, password, randomStr, code, grant_type, scope}
+    params: {username, password, randomStr, code, grant_type, scope,client_id:"pig"}
   })
 }
 
