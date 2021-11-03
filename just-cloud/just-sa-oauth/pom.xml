@@ -9,7 +9,7 @@
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>just-sa</artifactId>
+	<artifactId>just-sa-oauth</artifactId>
 
 	<dependencies>
 		<dependency>
