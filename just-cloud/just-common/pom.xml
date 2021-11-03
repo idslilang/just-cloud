@@ -40,5 +40,6 @@
 		<module>just-common-feign</module>
 		<module>just-common-swagger</module>
 		<module>just-common-test</module>
+		<module>just-sa-security</module>
 	</modules>
 </project>

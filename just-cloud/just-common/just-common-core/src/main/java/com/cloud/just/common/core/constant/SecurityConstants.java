@@ -52,6 +52,9 @@ public interface SecurityConstants {
 	 */
 	String OAUTH_TOKEN_URL = "/oauth/token";
 
+	String OAUTH_TOKEN_URL2 = "/oauth2/token";
+
+
 	/**
 	 * grant_type
 	 */
