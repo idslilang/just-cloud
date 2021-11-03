@@ -3,6 +3,10 @@ package com.just.sa.config;
 import cn.dev33.satoken.oauth2.logic.SaOAuth2Template;
 import cn.dev33.satoken.oauth2.model.AccessTokenModel;
 import cn.dev33.satoken.oauth2.model.SaClientModel;
+import cn.hutool.core.util.ObjectUtil;
+import com.just.sa.entity.SysOauthClientDetails;
+import com.just.sa.service.SysOauthClientDetailsService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -14,16 +18,21 @@ import org.springframework.stereotype.Component;
 @Component
 public class JustSaConfig extends SaOAuth2Template {
 
+    @Autowired
+	SysOauthClientDetailsService sysOauthClientDetailsService;
+
 	// 根据 id 获取 Client 信息
 	@Override
 	public SaClientModel getClientModel(String clientId) {
-		// 此为模拟数据，真实环境需要从数据库查询
-		if("1001".equals(clientId)) {
+
+		SysOauthClientDetails saClient = sysOauthClientDetailsService.findClientDetailsById(clientId);
+
+		if(ObjectUtil.isNotNull(saClient)){
 			return new SaClientModel()
-					.setClientId("10001")
-					.setClientSecret("aaaa-bbbb-cccc-dddd-eeee")
+					.setClientId(saClient.getClientId())
+					.setClientSecret(saClient.getClientSecret())
 					.setAllowUrl("*")
-					.setContractScope("userinfo");
+					.setContractScope(saClient.getScope());
 		}
 		return null;
 	}

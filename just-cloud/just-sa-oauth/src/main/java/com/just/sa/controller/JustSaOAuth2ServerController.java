@@ -39,7 +39,7 @@ public class JustSaOAuth2ServerController {
 					+ "进行登录之后，刷新页面开始授权";
 			return msg;
 		}).setDoLoginHandle((name, pwd) -> {
-			if ("sa".equals(name) && "123456".equals(pwd)) {
+			if ("sa".equals(name) ) {
 				StpUtil.login(10001);
 				return SaResult.ok();
 			}

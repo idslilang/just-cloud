@@ -17,7 +17,6 @@
 package com.cloud.just.admin;
 
 import com.cloud.just.common.feign.annotation.EnableJustFeignClients;
-import com.cloud.just.common.security.annotation.EnableJustResourceServer;
 import com.cloud.just.common.swagger.annotation.EnableJustSwagger2;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -28,7 +27,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * @date 2018年06月21日 用户统一管理系统
  */
 @EnableJustSwagger2
-@EnableJustResourceServer
+//@EnableJustResourceServer
 @EnableJustFeignClients
 @EnableDiscoveryClient
 @SpringBootApplication
