@@ -40,7 +40,7 @@ public class JustSaOAuth2ServerController {
 			return msg;
 		}).setDoLoginHandle((name, pwd) -> {
 			if ("sa".equals(name) ) {
-				StpUtil.login(10001);
+				StpUtil.login(name);
 				return SaResult.ok();
 			}
 			return SaResult.error("账号名或密码错误");
