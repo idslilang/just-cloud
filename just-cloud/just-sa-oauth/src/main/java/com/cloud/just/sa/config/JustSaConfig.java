@@ -1,11 +1,11 @@
-package com.just.sa.config;
+package com.cloud.just.sa.config;
 
 import cn.dev33.satoken.oauth2.logic.SaOAuth2Template;
 import cn.dev33.satoken.oauth2.model.AccessTokenModel;
 import cn.dev33.satoken.oauth2.model.SaClientModel;
 import cn.hutool.core.util.ObjectUtil;
-import com.just.sa.entity.SysOauthClientDetails;
-import com.just.sa.service.SysOauthClientDetailsService;
+import com.cloud.just.sa.entity.SysOauthClientDetails;
+import com.cloud.just.sa.service.SysOauthClientDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

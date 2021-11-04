@@ -1,4 +1,4 @@
-package com.just.sa.security.service;
+package com.cloud.just.sa.security.service;
 
 import cn.dev33.satoken.stp.StpInterface;
 import cn.hutool.core.util.ArrayUtil;
@@ -35,9 +35,7 @@ public class StpInterfaceImpl implements StpInterface {
 		if (cache != null && cache.get(username) != null) {
 			return (SaUserInfo) cache.get(username).get();
 		}
-
 		R<UserInfo> result = remoteUserService.info(username, SecurityConstants.FROM_IN);
-
 		SaUserInfo userInfo = getUserDetails(result);
 		if (cache != null) {
 			cache.put(username, userInfo);

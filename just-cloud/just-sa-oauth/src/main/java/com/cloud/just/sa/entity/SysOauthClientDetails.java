@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.just.sa.entity;
+package com.cloud.just.sa.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;

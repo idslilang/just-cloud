@@ -1,4 +1,4 @@
-package com.just.sa;
+package com.cloud.just.sa;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

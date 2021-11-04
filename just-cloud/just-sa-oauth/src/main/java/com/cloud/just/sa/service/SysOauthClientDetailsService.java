@@ -1,7 +1,7 @@
-package com.just.sa.service;
+package com.cloud.just.sa.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.just.sa.entity.SysOauthClientDetails;
+import com.cloud.just.sa.entity.SysOauthClientDetails;
 
 
 /**

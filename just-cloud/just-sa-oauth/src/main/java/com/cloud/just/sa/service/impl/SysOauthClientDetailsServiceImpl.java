@@ -1,11 +1,11 @@
 
-package com.just.sa.service.impl;
+package com.cloud.just.sa.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.cloud.just.common.core.constant.CacheConstants;
-import com.just.sa.entity.SysOauthClientDetails;
-import com.just.sa.mapper.SysOauthClientDetailsMapper;
-import com.just.sa.service.SysOauthClientDetailsService;
+import com.cloud.just.sa.entity.SysOauthClientDetails;
+import com.cloud.just.sa.mapper.SysOauthClientDetailsMapper;
+import com.cloud.just.sa.service.SysOauthClientDetailsService;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;
 
