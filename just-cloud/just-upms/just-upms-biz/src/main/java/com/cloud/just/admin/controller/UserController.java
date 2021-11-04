@@ -25,13 +25,10 @@ import com.cloud.just.admin.api.vo.UserExcelVO;
 import com.cloud.just.admin.service.SysUserService;
 import com.cloud.just.common.core.util.R;
 import com.cloud.just.common.log.annotation.SysLog;
-import com.cloud.just.common.security.annotation.Inner;
-import com.cloud.just.common.security.util.SecurityUtils;
 import com.pig4cloud.plugin.excel.annotation.RequestExcel;
 import com.pig4cloud.plugin.excel.annotation.ResponseExcel;
 import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -56,7 +53,8 @@ public class UserController {
 	 */
 	@GetMapping(value = { "/info" })
 	public R info() {
-		String username = SecurityUtils.getUser().getUsername();
+//		String username = SecurityUtils.getUser().getUsername();
+		String username = "String.valueOf(StpUtil.getLoginId())";
 		SysUser user = userService.getOne(Wrappers.<SysUser>query().lambda().eq(SysUser::getUsername, username));
 		if (user == null) {
 			return R.failed("获取当前用户信息失败");
@@ -68,7 +66,7 @@ public class UserController {
 	 * 获取指定用户全部信息
 	 * @return 用户信息
 	 */
-	@Inner
+	//todo:	@Inner
 	@GetMapping("/info/{username}")
 	public R info(@PathVariable String username) {
 		SysUser user = userService.getOne(Wrappers.<SysUser>query().lambda().eq(SysUser::getUsername, username));
@@ -107,7 +105,7 @@ public class UserController {
 	 */
 	@SysLog("删除用户信息")
 	@DeleteMapping("/{id}")
-	@PreAuthorize("@pms.hasPermission('sys_user_del')")
+//	@PreAuthorize("@pms.hasPermission('sys_user_del')")
 	public R userDel(@PathVariable Integer id) {
 		SysUser sysUser = userService.getById(id);
 		return R.ok(userService.removeUserById(sysUser));
@@ -120,7 +118,7 @@ public class UserController {
 	 */
 	@SysLog("添加用户")
 	@PostMapping
-	@PreAuthorize("@pms.hasPermission('sys_user_add')")
+//	@PreAuthorize("@pms.hasPermission('sys_user_add')")
 	public R user(@RequestBody UserDTO userDto) {
 		return R.ok(userService.saveUser(userDto));
 	}
@@ -132,7 +130,7 @@ public class UserController {
 	 */
 	@SysLog("更新用户信息")
 	@PutMapping
-	@PreAuthorize("@pms.hasPermission('sys_user_edit')")
+//	@PreAuthorize("@pms.hasPermission('sys_user_edit')")
 	public R updateUser(@Valid @RequestBody UserDTO userDto) {
 		return R.ok(userService.updateUser(userDto));
 	}
@@ -175,7 +173,7 @@ public class UserController {
 	 */
 	@ResponseExcel
 	@GetMapping("/export")
-	@PreAuthorize("@pms.hasPermission('sys_user_import_export')")
+//	@PreAuthorize("@pms.hasPermission('sys_user_import_export')")
 	public List export(UserDTO userDTO) {
 		return userService.listUser(userDTO);
 	}
@@ -187,7 +185,7 @@ public class UserController {
 	 * @return R
 	 */
 	@PostMapping("/import")
-	@PreAuthorize("@pms.hasPermission('sys_user_import_export')")
+//	@PreAuthorize("@pms.hasPermission('sys_user_import_export')")
 	public R importUser(@RequestExcel List<UserExcelVO> excelVOList, BindingResult bindingResult) {
 		return userService.importUser(excelVOList, bindingResult);
 	}

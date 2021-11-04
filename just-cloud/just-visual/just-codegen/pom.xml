@@ -75,11 +75,7 @@
 			<groupId>com.cloud</groupId>
 			<artifactId>just-common-log</artifactId>
 		</dependency>
-		<!--安全模块-->
-		<dependency>
-			<groupId>com.cloud</groupId>
-			<artifactId>just-common-security</artifactId>
-		</dependency>
+
 		<!--代码生成模板引擎-->
 		<dependency>
 			<artifactId>velocity</artifactId>

@@ -72,11 +72,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-undertow</artifactId>
 		</dependency>
-		<!--单元测试-->
-		<dependency>
-			<groupId>com.cloud</groupId>
-			<artifactId>just-common-test</artifactId>
-		</dependency>
+
 	</dependencies>
 
 	<build>

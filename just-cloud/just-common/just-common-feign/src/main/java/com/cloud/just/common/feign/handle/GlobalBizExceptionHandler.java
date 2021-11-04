@@ -21,8 +21,6 @@ import com.cloud.just.common.core.util.R;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.access.AccessDeniedException;
-import org.springframework.security.core.SpringSecurityMessageSource;
 import org.springframework.util.Assert;
 import org.springframework.validation.BindException;
 import org.springframework.validation.FieldError;
@@ -83,14 +81,14 @@ public class GlobalBizExceptionHandler {
 	 * @param e the e
 	 * @return R
 	 */
-	@ExceptionHandler(AccessDeniedException.class)
-	@ResponseStatus(HttpStatus.FORBIDDEN)
-	public R handleAccessDeniedException(AccessDeniedException e) {
-		String msg = SpringSecurityMessageSource.getAccessor().getMessage("AbstractAccessDecisionManager.accessDenied",
-				e.getMessage());
-		log.error("拒绝授权异常信息 ex={}", msg, e);
-		return R.failed(e.getLocalizedMessage());
-	}
+//	@ExceptionHandler(AccessDeniedException.class)
+//	@ResponseStatus(HttpStatus.FORBIDDEN)
+//	public R handleAccessDeniedException(AccessDeniedException e) {
+//		String msg = SpringSecurityMessageSource.getAccessor().getMessage("AbstractAccessDecisionManager.accessDenied",
+//				e.getMessage());
+//		log.error("拒绝授权异常信息 ex={}", msg, e);
+//		return R.failed(e.getLocalizedMessage());
+//	}
 
 	/**
 	 * validation Exception

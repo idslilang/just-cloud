@@ -11,7 +11,6 @@ import com.cloud.just.common.core.util.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -50,7 +49,7 @@ public class StpInterfaceImpl implements StpInterface {
 
 	private SaUserInfo getUserDetails(R<UserInfo> result) {
 		if (result == null || result.getData() == null) {
-			throw new UsernameNotFoundException("用户不存在");
+			return null;
 		}
 
 		UserInfo info = result.getData();

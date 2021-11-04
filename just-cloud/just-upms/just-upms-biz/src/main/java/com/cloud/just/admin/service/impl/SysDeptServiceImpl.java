@@ -27,7 +27,6 @@ import com.cloud.just.admin.api.entity.SysDeptRelation;
 import com.cloud.just.admin.mapper.SysDeptMapper;
 import com.cloud.just.admin.service.SysDeptRelationService;
 import com.cloud.just.admin.service.SysDeptService;
-import com.cloud.just.common.security.util.SecurityUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
@@ -123,7 +122,10 @@ public class SysDeptServiceImpl extends ServiceImpl<SysDeptMapper, SysDept> impl
 	 */
 	@Override
 	public List<Tree<Integer>> listCurrentUserDeptTrees() {
-		Integer deptId = SecurityUtils.getUser().getDeptId();
+//		Integer deptId = SecurityUtils.getUser().getDeptId();
+		//todo:临时缺陷
+		Integer deptId =12343;
+
 		List<Integer> descendantIdList = sysDeptRelationService
 				.list(Wrappers.<SysDeptRelation>query().lambda().eq(SysDeptRelation::getAncestor, deptId)).stream()
 				.map(SysDeptRelation::getDescendant).collect(Collectors.toList());

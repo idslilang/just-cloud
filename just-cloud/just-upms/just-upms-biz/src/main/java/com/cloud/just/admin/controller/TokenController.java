@@ -21,7 +21,6 @@ import com.cloud.just.common.core.constant.SecurityConstants;
 import com.cloud.just.common.core.util.R;
 import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -54,7 +53,7 @@ public class TokenController {
 	 * @return success/false
 	 */
 	@DeleteMapping("/{id}")
-	@PreAuthorize("@pms.hasPermission('sys_token_del')")
+//	@PreAuthorize("@pms.hasPermission('sys_token_del')")
 	public R<Boolean> delete(@PathVariable String id) {
 		return remoteTokenService.removeToken(id, SecurityConstants.FROM_IN);
 	}

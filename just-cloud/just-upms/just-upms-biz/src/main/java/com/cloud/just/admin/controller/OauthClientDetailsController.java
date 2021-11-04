@@ -24,7 +24,6 @@ import com.cloud.just.common.core.util.R;
 import com.cloud.just.common.log.annotation.SysLog;
 import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -74,7 +73,7 @@ public class OauthClientDetailsController {
 	 */
 	@SysLog("添加终端")
 	@PostMapping
-	@PreAuthorize("@pms.hasPermission('sys_client_add')")
+//	@PreAuthorize("@pms.hasPermission('sys_client_add')")
 	public R add(@Valid @RequestBody SysOauthClientDetails sysOauthClientDetails) {
 		return R.ok(sysOauthClientDetailsService.save(sysOauthClientDetails));
 	}
@@ -86,7 +85,7 @@ public class OauthClientDetailsController {
 	 */
 	@SysLog("删除终端")
 	@DeleteMapping("/{id}")
-	@PreAuthorize("@pms.hasPermission('sys_client_del')")
+//	@PreAuthorize("@pms.hasPermission('sys_client_del')")
 	public R removeById(@PathVariable String id) {
 		return R.ok(sysOauthClientDetailsService.removeClientDetailsById(id));
 	}
@@ -98,7 +97,7 @@ public class OauthClientDetailsController {
 	 */
 	@SysLog("编辑终端")
 	@PutMapping
-	@PreAuthorize("@pms.hasPermission('sys_client_edit')")
+//	@PreAuthorize("@pms.hasPermission('sys_client_edit')")
 	public R update(@Valid @RequestBody SysOauthClientDetails sysOauthClientDetails) {
 		return R.ok(sysOauthClientDetailsService.updateClientDetailsById(sysOauthClientDetails));
 	}

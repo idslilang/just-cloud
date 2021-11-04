@@ -17,7 +17,6 @@
 		<just.common.version>${project.version}</just.common.version>
 		<spring-boot.version>2.5.4</spring-boot.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<security.oauth.version>2.3.6.RELEASE</security.oauth.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<git.commit.plugin>2.2.5</git.commit.plugin>
@@ -83,12 +82,7 @@
 				<artifactId>just-upms-api</artifactId>
 				<version>${just.common.version}</version>
 			</dependency>
-			<!--稳定版本，替代spring security bom内置-->
-			<dependency>
-				<groupId>org.springframework.security.oauth</groupId>
-				<artifactId>spring-security-oauth2</artifactId>
-				<version>${security.oauth.version}</version>
-			</dependency>
+
 			<!--swagger 最新依赖内置版本-->
 			<dependency>
 				<groupId>io.swagger</groupId>

@@ -22,12 +22,6 @@ import cn.hutool.http.HttpUtil;
 import com.cloud.just.admin.api.entity.SysLog;
 import lombok.experimental.UtilityClass;
 import org.springframework.http.HttpHeaders;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.oauth2.provider.OAuth2Authentication;
-import org.springframework.security.web.authentication.www.BasicAuthenticationConverter;
-import org.springframework.util.StringUtils;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -66,19 +60,6 @@ public class SysLogUtils {
 	 * @return clientId
 	 */
 	private String getClientId(HttpServletRequest request) {
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		if (authentication instanceof OAuth2Authentication) {
-			OAuth2Authentication auth2Authentication = (OAuth2Authentication) authentication;
-			return auth2Authentication.getOAuth2Request().getClientId();
-		}
-		if (authentication instanceof UsernamePasswordAuthenticationToken) {
-			BasicAuthenticationConverter basicAuthenticationConverter = new BasicAuthenticationConverter();
-			UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = basicAuthenticationConverter
-					.convert(request);
-			if (usernamePasswordAuthenticationToken != null) {
-				return usernamePasswordAuthenticationToken.getName();
-			}
-		}
 		return null;
 	}
 
@@ -88,11 +69,7 @@ public class SysLogUtils {
 	 * @return username
 	 */
 	private String getUsername() {
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		if (authentication == null) {
-			return null;
-		}
-		return authentication.getName();
+	  return "nihao ";
 	}
 
 }

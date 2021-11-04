@@ -52,10 +52,6 @@
 			<artifactId>nacos-istio</artifactId>
 			<version>${nacos.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
 
 		<dependency>
 			<groupId>cn.hutool</groupId>

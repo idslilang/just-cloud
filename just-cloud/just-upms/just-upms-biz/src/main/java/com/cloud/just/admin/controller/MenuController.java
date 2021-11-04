@@ -22,13 +22,12 @@ import com.cloud.just.admin.api.entity.SysMenu;
 import com.cloud.just.admin.service.SysMenuService;
 import com.cloud.just.common.core.util.R;
 import com.cloud.just.common.log.annotation.SysLog;
-import com.cloud.just.common.security.util.SecurityUtils;
 import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Arrays;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -51,9 +50,10 @@ public class MenuController {
 	 */
 	@GetMapping
 	public R getUserMenu(Integer parentId) {
+
 		// 获取符合条件的菜单
-		Set<SysMenu> sysMenuList = sysMenuService
-				.findMenuByRoleId(CollUtil.join(SecurityUtils.getRoles(), StrUtil.COMMA));
+//		Set<SysMenu> sysMenuList = sysMenuService.findMenuByRoleId(CollUtil.join(	StpUtil.getRoleList(), StrUtil.COMMA));
+		Set<SysMenu> sysMenuList = sysMenuService.findMenuByRoleId(CollUtil.join(Arrays.asList("12312"), StrUtil.COMMA));
 		return R.ok(sysMenuService.filterMenu(sysMenuList, parentId));
 	}
 
@@ -96,7 +96,7 @@ public class MenuController {
 	 */
 	@SysLog("新增菜单")
 	@PostMapping
-	@PreAuthorize("@pms.hasPermission('sys_menu_add')")
+//	@PreAuthorize("@pms.hasPermission('sys_menu_add')")
 	public R save(@Valid @RequestBody SysMenu sysMenu) {
 		sysMenuService.save(sysMenu);
 		return R.ok(sysMenu);
@@ -109,7 +109,7 @@ public class MenuController {
 	 */
 	@SysLog("删除菜单")
 	@DeleteMapping("/{id}")
-	@PreAuthorize("@pms.hasPermission('sys_menu_del')")
+//	@PreAuthorize("@pms.hasPermission('sys_menu_del')")
 	public R removeById(@PathVariable Integer id) {
 		return R.ok(sysMenuService.removeMenuById(id));
 	}
@@ -121,7 +121,7 @@ public class MenuController {
 	 */
 	@SysLog("更新菜单")
 	@PutMapping
-	@PreAuthorize("@pms.hasPermission('sys_menu_edit')")
+//	@PreAuthorize("@pms.hasPermission('sys_menu_edit')")
 	public R update(@Valid @RequestBody SysMenu sysMenu) {
 		return R.ok(sysMenuService.updateMenuById(sysMenu));
 	}

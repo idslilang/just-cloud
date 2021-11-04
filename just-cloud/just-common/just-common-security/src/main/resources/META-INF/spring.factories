@@ -1,4 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.cloud.just.common.security.service.JustUserDetailsServiceImpl,\
-  com.cloud.just.common.security.component.JustSecurityInnerAspect
-

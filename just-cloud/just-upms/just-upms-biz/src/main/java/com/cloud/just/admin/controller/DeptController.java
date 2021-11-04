@@ -22,7 +22,6 @@ import com.cloud.just.common.core.util.R;
 import com.cloud.just.common.log.annotation.SysLog;
 import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -79,7 +78,7 @@ public class DeptController {
 	 */
 	@SysLog("添加部门")
 	@PostMapping
-	@PreAuthorize("@pms.hasPermission('sys_dept_add')")
+//	@PreAuthorize("@pms.hasPermission('sys_dept_add')")
 	public R save(@Valid @RequestBody SysDept sysDept) {
 		return R.ok(sysDeptService.saveDept(sysDept));
 	}
@@ -91,7 +90,7 @@ public class DeptController {
 	 */
 	@SysLog("删除部门")
 	@DeleteMapping("/{id}")
-	@PreAuthorize("@pms.hasPermission('sys_dept_del')")
+//	@PreAuthorize("@pms.hasPermission('sys_dept_del')")
 	public R removeById(@PathVariable Integer id) {
 		return R.ok(sysDeptService.removeDeptById(id));
 	}
@@ -103,7 +102,7 @@ public class DeptController {
 	 */
 	@SysLog("编辑部门")
 	@PutMapping
-	@PreAuthorize("@pms.hasPermission('sys_dept_edit')")
+//	@PreAuthorize("@pms.hasPermission('sys_dept_edit')")
 	public R update(@Valid @RequestBody SysDept sysDept) {
 		sysDept.setUpdateTime(LocalDateTime.now());
 		return R.ok(sysDeptService.updateDeptById(sysDept));

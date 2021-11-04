@@ -100,7 +100,6 @@
 	<modules>
 		<module>just-register</module>
 		<module>just-gateway</module>
-		<module>just-auth</module>
 		<module>just-upms</module>
 		<module>just-common</module>
 		<module>just-visual</module>

@@ -36,7 +36,6 @@
 		<module>just-common-job</module>
 		<module>just-common-log</module>
 		<module>just-common-mybatis</module>
-		<!--<module>just-common-security</module>-->
 		<module>just-common-feign</module>
 		<module>just-common-swagger</module>
 		<module>just-common-test</module>

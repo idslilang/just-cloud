@@ -18,7 +18,6 @@ package com.cloud.just.codegen;
 
 import com.cloud.just.common.datasource.annotation.EnableDynamicDataSource;
 import com.cloud.just.common.feign.annotation.EnableJustFeignClients;
-import com.cloud.just.common.security.annotation.EnableJustResourceServer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -31,7 +30,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @EnableJustFeignClients
 @EnableDiscoveryClient
 @SpringBootApplication
-@EnableJustResourceServer
+//@EnableJustResourceServer
 public class JustCodeGenApplication {
 
 	public static void main(String[] args) {

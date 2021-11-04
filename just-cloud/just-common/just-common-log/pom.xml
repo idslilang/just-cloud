@@ -43,14 +43,7 @@
 			<artifactId>just-upms-api</artifactId>
 			<version>3.3.3</version>
 		</dependency>
-		<!--安全依赖获取上下文信息-->
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security.oauth</groupId>
-			<artifactId>spring-security-oauth2</artifactId>
-		</dependency>
+
+
 	</dependencies>
 </project>

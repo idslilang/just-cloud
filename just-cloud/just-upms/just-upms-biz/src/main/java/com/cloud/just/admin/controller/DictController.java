@@ -30,7 +30,6 @@ import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -91,7 +90,7 @@ public class DictController {
 	 */
 	@SysLog("添加字典")
 	@PostMapping
-	@PreAuthorize("@pms.hasPermission('sys_dict_add')")
+//	@PreAuthorize("@pms.hasPermission('sys_dict_add')")
 	public R save(@Valid @RequestBody SysDict sysDict) {
 		return R.ok(sysDictService.save(sysDict));
 	}
@@ -103,7 +102,7 @@ public class DictController {
 	 */
 	@SysLog("删除字典")
 	@DeleteMapping("/{id}")
-	@PreAuthorize("@pms.hasPermission('sys_dict_del')")
+//	@PreAuthorize("@pms.hasPermission('sys_dict_del')")
 	public R removeById(@PathVariable Integer id) {
 		sysDictService.removeDict(id);
 		return R.ok();
@@ -116,7 +115,7 @@ public class DictController {
 	 */
 	@PutMapping
 	@SysLog("修改字典")
-	@PreAuthorize("@pms.hasPermission('sys_dict_edit')")
+//	@PreAuthorize("@pms.hasPermission('sys_dict_edit')")
 	public R updateById(@Valid @RequestBody SysDict sysDict) {
 		sysDictService.updateDict(sysDict);
 		return R.ok();

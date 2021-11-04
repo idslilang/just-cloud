@@ -20,11 +20,9 @@ import com.cloud.just.admin.api.dto.SysLogDTO;
 import com.cloud.just.admin.api.entity.SysLog;
 import com.cloud.just.admin.service.SysLogService;
 import com.cloud.just.common.core.util.R;
-import com.cloud.just.common.security.annotation.Inner;
 import com.pig4cloud.plugin.excel.annotation.ResponseExcel;
 import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -63,7 +61,7 @@ public class LogController {
 	 * @return success/false
 	 */
 	@DeleteMapping("/{id}")
-	@PreAuthorize("@pms.hasPermission('sys_log_del')")
+//	@PreAuthorize("@pms.hasPermission('sys_log_del')")
 	public R removeById(@PathVariable Long id) {
 		return R.ok(sysLogService.removeById(id));
 	}
@@ -73,7 +71,7 @@ public class LogController {
 	 * @param sysLog 日志实体
 	 * @return success/false
 	 */
-	@Inner
+	//todo:@Inner
 	@PostMapping
 	public R save(@Valid @RequestBody SysLog sysLog) {
 		return R.ok(sysLogService.save(sysLog));
@@ -86,7 +84,7 @@ public class LogController {
 	 */
 	@ResponseExcel
 	@GetMapping("/export")
-	@PreAuthorize("@pms.hasPermission('sys_log_import_export')")
+//	@PreAuthorize("@pms.hasPermission('sys_log_import_export')")
 	public List<SysLog> export(SysLogDTO sysLog) {
 		return sysLogService.getLogList(sysLog);
 	}
