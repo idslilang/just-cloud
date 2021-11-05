@@ -1,7 +1,9 @@
 package com.cloud.just.sa;
 
+import com.cloud.just.common.feign.annotation.EnableJustFeignClients;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
  * @description:
@@ -9,6 +11,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @version:
  * @modified By:1170370113@qq.com
  */
+@EnableDiscoveryClient
+@EnableJustFeignClients
 @SpringBootApplication
 public class JustSaOAuth2ServerApplication {
 	public static void main(String[] args) {

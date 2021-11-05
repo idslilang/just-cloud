@@ -3,9 +3,16 @@ package com.cloud.just.sa.controller;
 import cn.dev33.satoken.context.SaHolder;
 import cn.dev33.satoken.oauth2.config.SaOAuth2Config;
 import cn.dev33.satoken.oauth2.logic.SaOAuth2Handle;
+import cn.dev33.satoken.oauth2.logic.SaOAuth2Util;
 import cn.dev33.satoken.stp.StpUtil;
 import cn.dev33.satoken.util.SaResult;
+import cn.hutool.core.util.ObjectUtil;
+import com.cloud.just.admin.api.dto.UserInfo;
+import com.cloud.just.admin.api.feign.RemoteUserService;
+import com.cloud.just.common.core.constant.SecurityConstants;
+import com.cloud.just.common.core.util.R;
 import com.cloud.just.sa.config.JustSaConfig;
+import com.cloud.just.sa.utils.PasswordEncoderUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +30,9 @@ public class JustSaOAuth2ServerController {
 	@Autowired
 	JustSaConfig justSaConfig;
 
+	@Autowired
+	RemoteUserService remoteUserService;
+
 	// 处理所有OAuth相关请求
 	@RequestMapping("/oauth2/*")
 	public Object request() {
@@ -39,11 +49,13 @@ public class JustSaOAuth2ServerController {
 					+ "进行登录之后，刷新页面开始授权";
 			return msg;
 		}).setDoLoginHandle((name, pwd) -> {
-			if ("sa".equals(name) ) {
-				StpUtil.login(name);
-				return SaResult.ok();
+			R<UserInfo> result = remoteUserService.info(name, SecurityConstants.FROM_IN);
+			if (ObjectUtil.isEmpty(result.getData())){
+				return SaResult.error("用户没注册");
 			}
-			return SaResult.error("账号名或密码错误");
+			UserInfo userInfo = result.getData();
+			StpUtil.login(userInfo.getSysUser().getUserId());
+			return SaResult.ok();
 		}).setConfirmView((clientId, scope) -> {
 			String msg = "<p>应用 " + clientId + " 请求授权：" + scope + "</p>"
 					+ "<p>请确认：<a href='/oauth2/doConfirm?client_id=" + clientId + "&scope=" + scope + "' target='_blank'> 确认授权 </a></p>"

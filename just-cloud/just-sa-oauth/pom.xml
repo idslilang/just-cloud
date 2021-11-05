@@ -12,6 +12,12 @@
 	<artifactId>just-sa-oauth</artifactId>
 
 	<dependencies>
+
+		<dependency>
+			<groupId>com.just.study</groupId>
+			<artifactId>just-upms-api</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>cn.dev33</groupId>
 			<artifactId>sa-token-spring-boot-starter</artifactId>
@@ -62,6 +68,10 @@
 		<dependency>
 			<groupId>com.cloud</groupId>
 			<artifactId>just-common-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.cloud</groupId>
+			<artifactId>just-upms-api</artifactId>
 		</dependency>
 
 
