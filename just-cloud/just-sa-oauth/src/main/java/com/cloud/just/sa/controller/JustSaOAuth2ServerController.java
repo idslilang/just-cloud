@@ -14,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import sun.rmi.runtime.Log;
 
 /**
  * @description:
@@ -48,7 +47,7 @@ public class JustSaOAuth2ServerController {
 			return msg;
 		}).setDoLoginHandle((name, pwd) -> {
 			R<SysUser> result = remoteUserService.getUser(name);
-			if (ObjectUtil.isEmpty(result.getData())){
+			if (ObjectUtil.isEmpty(result)){
 				return SaResult.error("用户没注册");
 			}
 			SysUser userInfo = result.getData();

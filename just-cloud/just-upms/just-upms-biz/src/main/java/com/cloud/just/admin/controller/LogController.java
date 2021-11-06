@@ -20,6 +20,7 @@ import com.cloud.just.admin.api.dto.SysLogDTO;
 import com.cloud.just.admin.api.entity.SysLog;
 import com.cloud.just.admin.service.SysLogService;
 import com.cloud.just.common.core.util.R;
+import com.cloud.just.sa.annotation.Inner;
 import com.pig4cloud.plugin.excel.annotation.ResponseExcel;
 import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
@@ -71,7 +72,7 @@ public class LogController {
 	 * @param sysLog 日志实体
 	 * @return success/false
 	 */
-	//todo:@Inner
+	@Inner
 	@PostMapping
 	public R save(@Valid @RequestBody SysLog sysLog) {
 		return R.ok(sysLogService.save(sysLog));

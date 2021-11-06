@@ -36,10 +36,16 @@
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-pool2</artifactId>
 		</dependency>
+		<!-- 工具包依赖 -->
 		<dependency>
 			<groupId>com.cloud</groupId>
-			<artifactId>just-upms-api</artifactId>
+			<artifactId>just-common-core</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+		</dependency>
+
 
 	</dependencies>
 </project>

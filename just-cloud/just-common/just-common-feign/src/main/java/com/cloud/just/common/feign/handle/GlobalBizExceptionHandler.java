@@ -29,11 +29,12 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import java.nio.file.AccessDeniedException;
 import java.util.List;
 
 /**
  * <p>
- * 全局异常处理器结合sentinel 全局异常处理器不能作用在 oauth server https://gitee.com/log4j/just/issues/I1M2TJ
+	 * 全局异常处理器结合sentinel 全局异常处理器不能作用在 oauth server https://gitee.com/log4j/just/issues/I1M2TJ
  * </p>
  *
  * @author lengleng
@@ -81,14 +82,11 @@ public class GlobalBizExceptionHandler {
 	 * @param e the e
 	 * @return R
 	 */
-//	@ExceptionHandler(AccessDeniedException.class)
-//	@ResponseStatus(HttpStatus.FORBIDDEN)
-//	public R handleAccessDeniedException(AccessDeniedException e) {
-//		String msg = SpringSecurityMessageSource.getAccessor().getMessage("AbstractAccessDecisionManager.accessDenied",
-//				e.getMessage());
-//		log.error("拒绝授权异常信息 ex={}", msg, e);
-//		return R.failed(e.getLocalizedMessage());
-//	}
+	@ExceptionHandler(AccessDeniedException.class)
+	@ResponseStatus(HttpStatus.FORBIDDEN)
+	public R handleAccessDeniedException(AccessDeniedException e) {
+		return R.failed(e.getLocalizedMessage());
+	}
 
 	/**
 	 * validation Exception

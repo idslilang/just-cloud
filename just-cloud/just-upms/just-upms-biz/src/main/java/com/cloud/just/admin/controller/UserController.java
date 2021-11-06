@@ -27,6 +27,7 @@ import com.cloud.just.admin.api.vo.UserExcelVO;
 import com.cloud.just.admin.service.SysUserService;
 import com.cloud.just.common.core.util.R;
 import com.cloud.just.common.log.annotation.SysLog;
+import com.cloud.just.sa.annotation.Inner;
 import com.pig4cloud.plugin.excel.annotation.RequestExcel;
 import com.pig4cloud.plugin.excel.annotation.ResponseExcel;
 import io.swagger.annotations.Api;
@@ -100,7 +101,7 @@ public class UserController {
 	 *
 	 * @return 用户信息
 	 */
-	//todo:	@Inner
+	@Inner
 	@GetMapping("/info/{username}")
 	public R info(@PathVariable String username) {
 		SysUser user = userService.getOne(Wrappers.<SysUser>query().lambda().eq(SysUser::getUsername, username));
