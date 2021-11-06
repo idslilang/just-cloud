@@ -30,7 +30,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 //@EnableJustResourceServer
 @EnableJustFeignClients
 @EnableDiscoveryClient
-@SpringBootApplication(scanBasePackages  = {"com.cloud.just",})
+@SpringBootApplication(scanBasePackages  = {"com.cloud.just"})
 public class JustAdminApplication {
 
 	public static void main(String[] args) {

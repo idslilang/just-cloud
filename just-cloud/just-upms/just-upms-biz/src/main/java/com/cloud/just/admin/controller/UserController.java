@@ -102,6 +102,7 @@ public class UserController {
 	 * @return 用户信息
 	 */
 	@Inner
+	@SysLog("添加用户")
 	@GetMapping("/info/{username}")
 	public R info(@PathVariable String username) {
 		SysUser user = userService.getOne(Wrappers.<SysUser>query().lambda().eq(SysUser::getUsername, username));

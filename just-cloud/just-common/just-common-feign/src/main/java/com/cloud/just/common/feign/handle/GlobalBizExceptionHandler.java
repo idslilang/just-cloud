@@ -46,21 +46,6 @@ import java.util.List;
 public class GlobalBizExceptionHandler {
 
 	/**
-	 * 全局异常.
-	 * @param e the e
-	 * @return R
-	 */
-	@ExceptionHandler(Exception.class)
-	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-	public R handleGlobalException(Exception e) {
-		log.error("全局异常信息 ex={}", e.getMessage(), e);
-
-		// 业务异常交由 sentinel 记录
-		Tracer.trace(e);
-		return R.failed(e.getLocalizedMessage());
-	}
-
-	/**
 	 * 处理业务校验过程中碰到的非法参数异常 该异常基本由{@link org.springframework.util.Assert}抛出
 	 * @see Assert#hasLength(String, String)
 	 * @see Assert#hasText(String, String)

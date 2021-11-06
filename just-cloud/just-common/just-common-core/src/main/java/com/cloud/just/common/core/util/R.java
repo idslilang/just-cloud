@@ -83,5 +83,12 @@ public class R<T> implements Serializable {
 		apiResult.setMsg(msg);
 		return apiResult;
 	}
-
+	@Override
+	public String toString() {
+		return "{"
+				+ "\"code\": " + this.getCode()
+				+ ", \"msg\": \"" + this.getMsg() + "\""
+				+ ", \"data\": \"" + this.getData() + "\""
+				+ "}";
+	}
 }
