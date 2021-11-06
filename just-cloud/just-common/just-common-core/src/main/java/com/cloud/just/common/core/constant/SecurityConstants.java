@@ -50,9 +50,8 @@ public interface SecurityConstants {
 	/**
 	 * 默认登录URL
 	 */
-	String OAUTH_TOKEN_URL = "/oauth/token";
+	String LOGIN_URL = "/user/login";
 
-	String OAUTH_TOKEN_URL2 = "/oauth2/token";
 
 
 	/**

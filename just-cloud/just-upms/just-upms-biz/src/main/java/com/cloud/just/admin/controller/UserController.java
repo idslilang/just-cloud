@@ -16,6 +16,7 @@
 
 package com.cloud.just.admin.controller;
 
+import cn.dev33.satoken.secure.SaSecureUtil;
 import cn.dev33.satoken.stp.StpUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -48,25 +49,45 @@ public class UserController {
 
 	private final SysUserService userService;
 
+	@PostMapping(value = {"/login"})
+	public R login(@RequestParam("username") String username,
+				   @RequestParam("password") String password) {
+		SysUser user = userService.getOne(Wrappers.<SysUser>query().lambda().eq(SysUser::getUsername, username));
+		if (user == null) {
+			return R.failed("当前用户未注册");
+		}
+		if (!user.getPassword().equals(SaSecureUtil.md5(password))) {
+			//e10adc3949ba59abbe56e057f20f883e
+			return R.failed("账号或密码错误");
+		}
+		StpUtil.login(username);
+		return R.ok(StpUtil.getTokenInfo());
+	}
 
+	@DeleteMapping(value = {"/logout"})
+	public R logOut() {
+		StpUtil.logout();
+		return R.ok("注销成功");
+	}
 
-
-	@GetMapping(value = { "/getUser" })
-	public R<SysUser> getUser(String loginId) {
-		String username = String.valueOf(StpUtil.getLoginId());
+	@GetMapping(value = {"/getUser/{loginId}"})
+	public R getUser(@PathVariable("loginId") String loginId) {
+		String username = String.valueOf(loginId);
 		SysUser user = userService.getOne(Wrappers.<SysUser>query().lambda().eq(SysUser::getUsername, username));
 		if (user == null) {
 			return R.failed("获取当前用户信息失败");
 		}
 		return R.ok(user);
 	}
+
 	/**
 	 * 获取当前用户全部信息
+	 *
 	 * @return 用户信息
 	 */
-	@GetMapping(value = { "/info" })
+	@GetMapping(value = {"/info"})
 	public R info() {
-		String username = "String.valueOf(StpUtil.getLoginId())";
+		String username = String.valueOf(StpUtil.getLoginId());
 		SysUser user = userService.getOne(Wrappers.<SysUser>query().lambda().eq(SysUser::getUsername, username));
 		if (user == null) {
 			return R.failed("获取当前用户信息失败");
@@ -76,6 +97,7 @@ public class UserController {
 
 	/**
 	 * 获取指定用户全部信息
+	 *
 	 * @return 用户信息
 	 */
 	//todo:	@Inner
@@ -90,6 +112,7 @@ public class UserController {
 
 	/**
 	 * 通过ID查询用户信息
+	 *
 	 * @param id ID
 	 * @return 用户信息
 	 */
@@ -100,6 +123,7 @@ public class UserController {
 
 	/**
 	 * 根据用户名查询用户信息
+	 *
 	 * @param username 用户名
 	 * @return
 	 */
@@ -112,6 +136,7 @@ public class UserController {
 
 	/**
 	 * 删除用户信息
+	 *
 	 * @param id ID
 	 * @return R
 	 */
@@ -125,6 +150,7 @@ public class UserController {
 
 	/**
 	 * 添加用户
+	 *
 	 * @param userDto 用户信息
 	 * @return success/false
 	 */
@@ -137,6 +163,7 @@ public class UserController {
 
 	/**
 	 * 更新用户信息
+	 *
 	 * @param userDto 用户信息
 	 * @return R
 	 */
@@ -149,7 +176,8 @@ public class UserController {
 
 	/**
 	 * 分页查询用户
-	 * @param page 参数集
+	 *
+	 * @param page    参数集
 	 * @param userDTO 查询参数列表
 	 * @return 用户集合
 	 */
@@ -160,6 +188,7 @@ public class UserController {
 
 	/**
 	 * 修改个人信息
+	 *
 	 * @param userDto userDto
 	 * @return success/false
 	 */
@@ -180,6 +209,7 @@ public class UserController {
 
 	/**
 	 * 导出excel 表格
+	 *
 	 * @param userDTO 查询条件
 	 * @return
 	 */
@@ -192,7 +222,8 @@ public class UserController {
 
 	/**
 	 * 导入用户
-	 * @param excelVOList 用户列表
+	 *
+	 * @param excelVOList   用户列表
 	 * @param bindingResult 错误信息列表
 	 * @return R
 	 */

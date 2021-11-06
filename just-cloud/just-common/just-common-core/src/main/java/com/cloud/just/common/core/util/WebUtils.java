@@ -40,11 +40,6 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 
-/**
- * Miscellaneous utilities for web applications.
- *
- * @author L.cm
- */
 @Slf4j
 @UtilityClass
 public class WebUtils extends org.springframework.web.util.WebUtils {

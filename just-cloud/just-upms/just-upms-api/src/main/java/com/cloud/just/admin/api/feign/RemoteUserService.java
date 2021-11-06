@@ -11,6 +11,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @FeignClient(contextId = "remoteUserService",
 		configuration = FeignInterceptor.class ,       // 请求拦截器 （关键代码）
@@ -37,7 +38,8 @@ public interface RemoteUserService {
 	@GetMapping("/social/info/{inStr}")
 	R<UserInfo> social(@PathVariable("inStr") String inStr);
 
-	@GetMapping(value = { "/getUser" })
-	public R<SysUser> getUser(String loginId);
+
+	@GetMapping(value = { "/user/getUser/{loginId}" })
+	R<SysUser> getUser(@PathVariable("loginId") String loginId);
 
 }

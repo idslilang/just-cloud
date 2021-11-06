@@ -61,8 +61,7 @@ public class ValidateCodeGatewayFilter extends AbstractGatewayFilterFactory<Obje
 		return (exchange, chain) -> {
 			ServerHttpRequest request = exchange.getRequest();
 			boolean isAuthToken = CharSequenceUtil.containsAnyIgnoreCase(request.getURI().getPath(),
-					SecurityConstants.OAUTH_TOKEN_URL)||CharSequenceUtil.containsAnyIgnoreCase(request.getURI().getPath(),
-					SecurityConstants.OAUTH_TOKEN_URL2);
+					SecurityConstants.LOGIN_URL);
 
 			// 不是登录请求，直接向下执行
 			if (!isAuthToken) {

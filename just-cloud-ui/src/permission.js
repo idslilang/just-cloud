@@ -14,7 +14,6 @@ NProgress.configure({ showSpinner: false });
  * https://router.vuejs.org/zh/guide/advanced/navigation-guards.html
  */
 router.beforeEach((to, from, next) => {
-  debugger
   // 缓冲设置
   if (
     to.meta.keepAlive === true &&

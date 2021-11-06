@@ -24,16 +24,12 @@ public class SaTokenConfigure implements WebMvcConfigurer {
 	public SaServletFilter getSaServletFilter() {
 		return new SaServletFilter()
 				.addInclude("/**")
-				.addExclude("/favicon.ico")
+				.addExclude("/favicon.ico","/user/login")
 				.setAuth(obj -> {
 					// 校验 Id-Token 身份凭证     —— 以下两句代码可简化为：SaIdUtil.checkCurrentRequestToken();
 					String token = SaHolder.getRequest().getHeader(SaIdUtil.ID_TOKEN);
 					SaIdUtil.checkToken(token);
-					//checkOauth();
-					//权限校验层登录
-					if (!StpUtil.isLogin()) {
-					      StpUtil.login(SaOAuth2Util.getLoginIdByAccessToken(StpUtil.getTokenValue()));
-					}
+					StpUtil.checkLogin();
 				})
 				.setError(e -> {
 					return SaResult.error(e.getMessage());
@@ -41,17 +37,5 @@ public class SaTokenConfigure implements WebMvcConfigurer {
 				;
 	}
 
-
-	private void checkOauth() {
-		SaOAuth2Util.checkAccessToken(StpUtil.getTokenValue());
-	}
-
-	private void chekPermissons() {
-
-	}
-
-	private void checkRoles() {
-
-	}
 
 }

@@ -25,7 +25,7 @@ export const loginByUsername = (username, password, code, randomStr) => {
   const grant_type = 'password'
 
   return request({
-    url: '/sa/oauth2/token',
+    url: '/admin/user/login',
     headers: {
       isToken: false,
       Authorization: 'Basic cGlnOnBpZw=='
@@ -57,7 +57,7 @@ export const getUserInfo = () => {
 
 export const logout = () => {
   return request({
-    url: '/auth/token/logout',
+    url: '/admin/user/logout',
     method: 'delete'
   })
 }

@@ -52,6 +52,10 @@
 			<groupId>com.cloud</groupId>
 			<artifactId>just-common-swagger</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.cloud</groupId>
+			<artifactId>just-common-core</artifactId>
+		</dependency>
 		<!--mybatis 模块-->
 		<dependency>
 			<groupId>com.cloud</groupId>
