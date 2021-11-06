@@ -1,22 +1,8 @@
-/*
- * Copyright (c) 2020 just4cloud Authors. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.cloud.just.admin.api.feign;
 
+import com.cloud.just.admin.api.component.FeignInterceptor;
 import com.cloud.just.admin.api.dto.UserInfo;
+import com.cloud.just.admin.api.entity.SysUser;
 import com.cloud.just.admin.api.feign.factory.RemoteUserServiceFallbackFactory;
 import com.cloud.just.common.core.constant.SecurityConstants;
 import com.cloud.just.common.core.constant.ServiceNameConstants;
@@ -26,18 +12,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
 
-/**
- * @author lengleng
- * @date 2019/2/1
- */
-@FeignClient(contextId = "remoteUserService", value = ServiceNameConstants.UMPS_SERVICE,
+@FeignClient(contextId = "remoteUserService",
+		configuration = FeignInterceptor.class ,       // 请求拦截器 （关键代码）
+		value = ServiceNameConstants.UMPS_SERVICE,
 		fallbackFactory = RemoteUserServiceFallbackFactory.class)
 public interface RemoteUserService {
 
 	/**
 	 * 通过用户名查询用户、角色信息
+	 *
 	 * @param username 用户名
-	 * @param from 调用标志
+	 * @param from     调用标志
 	 * @return R
 	 */
 	@GetMapping("/user/info/{username}")
@@ -45,10 +30,14 @@ public interface RemoteUserService {
 
 	/**
 	 * 通过社交账号查询用户、角色信息
+	 *
 	 * @param inStr appid@code
 	 * @return
 	 */
 	@GetMapping("/social/info/{inStr}")
 	R<UserInfo> social(@PathVariable("inStr") String inStr);
+
+	@GetMapping(value = { "/getUser" })
+	public R<SysUser> getUser(String loginId);
 
 }

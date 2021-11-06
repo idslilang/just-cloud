@@ -17,6 +17,7 @@
 package com.cloud.just.admin.api.feign.fallback;
 
 import com.cloud.just.admin.api.dto.UserInfo;
+import com.cloud.just.admin.api.entity.SysUser;
 import com.cloud.just.admin.api.feign.RemoteUserService;
 import com.cloud.just.common.core.util.R;
 import lombok.Setter;
@@ -56,5 +57,14 @@ public class RemoteUserServiceFallbackImpl implements RemoteUserService {
 		log.error("feign 查询用户信息失败:{}", inStr, cause);
 		return null;
 	}
+
+	/**
+	 * 查询用户信息失败
+	 * @return
+	 */
+	@Override
+	public R<SysUser> getUser(String loginId) {
+		log.error("feign 查询用户信息失败", cause);
+		return null;	}
 
 }

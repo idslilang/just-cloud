@@ -16,6 +16,7 @@
 
 package com.cloud.just.admin.controller;
 
+import cn.dev33.satoken.stp.StpUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -47,13 +48,24 @@ public class UserController {
 
 	private final SysUserService userService;
 
+
+
+
+	@GetMapping(value = { "/getUser" })
+	public R<SysUser> getUser(String loginId) {
+		String username = String.valueOf(StpUtil.getLoginId());
+		SysUser user = userService.getOne(Wrappers.<SysUser>query().lambda().eq(SysUser::getUsername, username));
+		if (user == null) {
+			return R.failed("获取当前用户信息失败");
+		}
+		return R.ok(user);
+	}
 	/**
 	 * 获取当前用户全部信息
 	 * @return 用户信息
 	 */
 	@GetMapping(value = { "/info" })
 	public R info() {
-//		String username = SecurityUtils.getUser().getUsername();
 		String username = "String.valueOf(StpUtil.getLoginId())";
 		SysUser user = userService.getOne(Wrappers.<SysUser>query().lambda().eq(SysUser::getUsername, username));
 		if (user == null) {

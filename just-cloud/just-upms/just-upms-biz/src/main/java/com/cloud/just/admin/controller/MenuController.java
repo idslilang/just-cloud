@@ -16,6 +16,7 @@
 
 package com.cloud.just.admin.controller;
 
+import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.StrUtil;
 import com.cloud.just.admin.api.entity.SysMenu;
@@ -27,7 +28,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.Arrays;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -50,10 +50,8 @@ public class MenuController {
 	 */
 	@GetMapping
 	public R getUserMenu(Integer parentId) {
-
 		// 获取符合条件的菜单
-//		Set<SysMenu> sysMenuList = sysMenuService.findMenuByRoleId(CollUtil.join(	StpUtil.getRoleList(), StrUtil.COMMA));
-		Set<SysMenu> sysMenuList = sysMenuService.findMenuByRoleId(CollUtil.join(Arrays.asList("12312"), StrUtil.COMMA));
+		Set<SysMenu> sysMenuList = sysMenuService.findMenuByRoleId(CollUtil.join(	StpUtil.getRoleList(), StrUtil.COMMA));
 		return R.ok(sysMenuService.filterMenu(sysMenuList, parentId));
 	}
 
