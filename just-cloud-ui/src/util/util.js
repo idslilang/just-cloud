@@ -1,5 +1,5 @@
 import { validatenull } from "./validate";
-import request from "@/router/axios";
+import request from "@/util/requst";
 import * as CryptoJS from "crypto-js";
 
 // 表单序列化

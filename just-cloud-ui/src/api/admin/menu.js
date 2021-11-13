@@ -15,7 +15,7 @@
  * Author: lengleng (wangiegie@gmail.com)
  */
 
-import request from '@/router/axios'
+import request from '@/util/requst'
 
 export function getMenu(id) {
   return request({

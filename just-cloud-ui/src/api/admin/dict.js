@@ -15,7 +15,7 @@
  * Author: lengleng (wangiegie@gmail.com)
  */
 
-import request from '@/router/axios'
+import request from '@/util/requst'
 
 export function fetchList(query) {
   return request({

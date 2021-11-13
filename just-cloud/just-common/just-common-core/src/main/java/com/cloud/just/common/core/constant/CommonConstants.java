@@ -77,6 +77,7 @@ public interface CommonConstants {
 	 */
 	Integer FAIL = 1;
 
+	Integer TOKEN_INVALID = 424;
 	/**
 	 * 验证码前缀
 	 */
@@ -91,5 +92,9 @@ public interface CommonConstants {
 	 * size
 	 */
 	String SIZE = "size";
+
+
+
+
 
 }

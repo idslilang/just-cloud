@@ -1,7 +1,7 @@
 import "babel-polyfill";
 import "classlist-polyfill";
 import Vue from "vue";
-import axios from "./router/axios";
+import axios from "@/util/requst";
 import VueAxios from "vue-axios";
 import App from "./App";
 import ElementUI from "element-ui";

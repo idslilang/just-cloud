@@ -6,7 +6,6 @@ import cn.dev33.satoken.id.SaIdUtil;
 import cn.dev33.satoken.stp.StpUtil;
 import cn.dev33.satoken.util.SaResult;
 import com.cloud.just.common.core.constant.CommonConstants;
-import com.cloud.just.common.core.util.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -35,7 +34,7 @@ public class SaTokenConfigure implements WebMvcConfigurer {
 				})
 				.setError(e -> {
 					SaResult saResult = SaResult.error(e.getMessage());
-					saResult.setCode(CommonConstants.FAIL);
+					saResult.setCode(CommonConstants.TOKEN_INVALID);
 					return saResult;
 				})
 				;

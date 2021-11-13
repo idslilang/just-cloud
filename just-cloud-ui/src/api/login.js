@@ -14,7 +14,7 @@
  * this software without specific prior written permission.
  * Author: lengleng (wangiegie@gmail.com)
  */
-import request from '@/router/axios'
+import request from '@/util/requst'
 import store from '@/store'
 
 

@@ -4,7 +4,7 @@ import {getUserInfo, loginByUsername, logout, refreshToken} from '@/api/login'
 import {deepClone, encryption} from '@/util/util'
 import webiste from '@/const/website'
 import {getMenu} from '@/api/admin/menu'
-
+import {setToken,removeToken} from '@/util/auth'
 function addPath(ele, first) {
   const menu = webiste.menu
   const propsConfig = menu.props
@@ -54,8 +54,9 @@ const user = {
       return new Promise((resolve, reject) => {
         loginByUsername(user.username, user.password, user.code, user.randomStr).then(response => {
           const data = response.data
-        
-          commit('SET_ACCESS_TOKEN', data.data.tokenValue)
+          const tokenValue = data.data.tokenValue ;
+          setToken(tokenValue,true)
+          commit('SET_ACCESS_TOKEN', tokenValue)
           commit('CLEAR_LOCK')
           resolve()
         }).catch(error => {
@@ -93,6 +94,7 @@ const user = {
     LogOut({commit}) {
       return new Promise((resolve, reject) => {
         logout().then(() => {
+          removeToken()
           commit('SET_MENU', [])
           commit('SET_PERMISSIONS', [])
           commit('SET_USER_INFO', {})
