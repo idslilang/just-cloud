@@ -3,14 +3,6 @@
     <basic-container>
       <div class="banner-text">
         <span>
-          <a href="https://avue.top/#/pay" target="_blank">
-            <img src="https://img.shields.io/badge/Element-2.13.6-green.svg" alt="Build Status">
-          </a>
-          <img src="https://img.shields.io/badge/Spring%20Boot-2.4.5-yellowgreen.svg" alt="Downloads">
-          <img src="https://img.shields.io/badge/Spring%20Cloud-2020-blue.svg" alt="Coverage Status">
-        </span>
-        <br/>
-        <span>
           <el-collapse v-model="activeNames">
             <el-collapse-item name="1">
               <div>基于Spring Cloud 2020</div>
@@ -21,7 +13,7 @@
               <div>支持Rancher2 + Kubernetes部署</div>
             </el-collapse-item>
             <el-collapse-item name="3">
-              <div>基于Spring Security OAuth 2.0 深度定制</div>
+              <div>基于sa-tokrn 做权限认证管理</div>
               <div>完美兼容2.X，优化集群部署，提升性能</div>
             </el-collapse-item>
             <el-collapse-item name="4">
