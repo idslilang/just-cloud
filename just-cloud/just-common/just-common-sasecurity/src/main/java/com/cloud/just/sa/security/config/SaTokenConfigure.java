@@ -34,7 +34,7 @@ public class SaTokenConfigure implements WebMvcConfigurer {
 				})
 				.setError(e -> {
 					SaResult saResult = SaResult.error(e.getMessage());
-					saResult.setCode(CommonConstants.TOKEN_INVALID);
+					saResult.setCode(CommonConstants.FAIL);
 					return saResult;
 				})
 				;
