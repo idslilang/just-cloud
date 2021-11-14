@@ -1,15 +1,20 @@
 import axios from "axios";
-import { serialize } from "@/util/util";
+import {
+  serialize
+} from "@/util/util";
 import NProgress from "nprogress"; // progress bar
 import errorCode from "@/const/errorCode";
-import { Message, MessageBox } from "element-ui";
+import {
+  Message,
+  MessageBox
+} from "element-ui";
 import "nprogress/nprogress.css";
 import qs from "qs";
 import store from "@/store"; // progress bar style
 import router from "@/router/router"
 axios.defaults.timeout = 30000;
 // 返回其他状态吗
-axios.defaults.validateStatus = function(status) {
+axios.defaults.validateStatus = function (status) {
   return status >= 200 && status <= 500; // 默认的
 };
 // 跨域请求，允许保存cookie
@@ -40,8 +45,10 @@ axios.interceptors.request.use(
 
     // 处理get 请求的数组 springmvc 可以处理
     if (config.method === "get") {
-      config.paramsSerializer = function(params) {
-        return qs.stringify(params, { arrayFormat: "repeat" });
+      config.paramsSerializer = function (params) {
+        return qs.stringify(params, {
+          arrayFormat: "repeat"
+        });
       };
     }
 
@@ -55,7 +62,7 @@ axios.interceptors.request.use(
 // HTTPresponse拦截
 axios.interceptors.response.use(
   (res) => {
-    
+
     NProgress.done();
     const status = Number(res.status) || 200;
     const message = res.data.msg || errorCode[status] || errorCode["default"];
@@ -67,25 +74,6 @@ axios.interceptors.response.use(
       });
       return Promise.reject(new Error(message));
     }
-
-    const resCode = res.data.code;
-    // 后台定义 424 针对令牌过去的特殊响应码
-    if (resCode === 424) {
-      MessageBox.confirm("令牌状态已过期，请点击重新登录", "系统提示", {
-        confirmButtonText: "重新登录",
-        cancelButtonText: "取消",
-        type: "warning"
-      })
-        .then(() => {
-          store.dispatch("LogOut").then(() => {
-            router.replace({"path":"/"})
-          });
-        })
-        .catch(() => {});
-      return;
-    }
-
-  
 
     return res;
   },

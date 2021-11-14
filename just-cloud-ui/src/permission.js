@@ -4,10 +4,14 @@
  */
 import router from "./router/router";
 import store from "@/store";
-import { validatenull } from "@/util/validate";
+import {
+  validatenull
+} from "@/util/validate";
 import NProgress from "nprogress"; // progress bar
 import "nprogress/nprogress.css"; // progress bar style
-NProgress.configure({ showSpinner: false });
+NProgress.configure({
+  showSpinner: false
+});
 
 /**
  * 导航守卫，相关内容可以参考:
@@ -15,15 +19,9 @@ NProgress.configure({ showSpinner: false });
  */
 router.beforeEach((to, from, next) => {
   // 缓冲设置
-  if (
-    to.meta.keepAlive === true &&
-    store.state.tags.tagList.some(ele => {
-      return ele.value === to.fullPath;
-    })
-  ) {
-    to.meta.$keepAlive = true;
+  if (to.meta.keepAlive === true && store.state.tags.tagList.some(ele => {return ele.value === to.fullPath;})) {
+     to.meta.$keepAlive = true;
   } else {
-    NProgress.start();
     if (to.meta.keepAlive === true && validatenull(to.meta.$keepAlive)) {
       to.meta.$keepAlive = true;
     } else {
@@ -33,7 +31,7 @@ router.beforeEach((to, from, next) => {
   const meta = to.meta || {};
   if (store.getters.access_token) {
     if (to.path === "/login") {
-      next({ path: "/" });
+      next({path: "/"});
     } else {
       // NOTE: 当用户角色不存在时，会存在无限请求用户信息接口的问题
       if (store.getters.roles.length === 0) {
@@ -44,7 +42,7 @@ router.beforeEach((to, from, next) => {
           })
           .catch(() => {
             store.dispatch("FedLogOut").then(() => {
-              next({ path: "/login" });
+              next({ path: "/login"});
             });
           });
       } else {
@@ -53,16 +51,11 @@ router.beforeEach((to, from, next) => {
 
         // 针对外链跳转
         if (value.includes("http", "https")) {
-          NProgress.done();
           window.open(value, label, "_blank");
           return;
         }
 
-        if (
-          meta.isTab !== false &&
-          !validatenull(value) &&
-          !validatenull(label)
-        ) {
+        if (meta.isTab !== false && !validatenull(value) && !validatenull(label)) {
           store.commit("ADD_TAG", {
             label: label,
             value: value,
@@ -78,13 +71,12 @@ router.beforeEach((to, from, next) => {
     if (meta.isAuth === false) {
       next();
     } else {
-      next();
+      next("/login");
     }
   }
 });
 
 router.afterEach(() => {
-  NProgress.done();
   const title = store.getters.tag.label;
   router.$avueRouter.setTitle(title);
 });

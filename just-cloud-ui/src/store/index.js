@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import user from './modules/user'
 import common from './modules/common'
 import tags from './modules/tags'
+
 import getters from './getters'
 
 Vue.use(Vuex)

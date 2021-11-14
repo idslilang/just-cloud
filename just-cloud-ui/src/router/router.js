@@ -6,7 +6,7 @@ import AvueRouter from './avue-router'
 import Store from '../store/'
 Vue.use(VueRouter)
 let Router = new VueRouter({
-  scrollBehavior (to, from, savedPosition) {
+  scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
       return savedPosition
     } else {
