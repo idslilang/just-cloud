@@ -103,7 +103,6 @@
 		<module>just-upms</module>
 		<module>just-common</module>
 		<module>just-visual</module>
-		<module>just-sa-oauth</module>
 	</modules>
 
 	<dependencyManagement>
