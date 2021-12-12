@@ -1,3 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-    com.cloud.just.common.feign.JustFeignAutoConfiguration,\
-    com.cloud.just.common.feign.handle.GlobalBizExceptionHandler

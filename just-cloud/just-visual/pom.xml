@@ -30,7 +30,6 @@
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>just-codegen</module>
 		<module>just-monitor</module>
 		<module>just-sentinel-dashboard</module>
 		<module>just-xxl-job-admin</module>

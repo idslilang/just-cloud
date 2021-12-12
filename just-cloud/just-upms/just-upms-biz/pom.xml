@@ -61,6 +61,11 @@
 			<groupId>com.cloud</groupId>
 			<artifactId>just-common-mybatis</artifactId>
 		</dependency>
+		<!--引入限流-->
+		<dependency>
+			<groupId>com.cloud</groupId>
+			<artifactId>just-common-sentinel</artifactId>
+		</dependency>
 		<!--注册中心客户端-->
 		<dependency>
 			<groupId>com.alibaba.cloud</groupId>

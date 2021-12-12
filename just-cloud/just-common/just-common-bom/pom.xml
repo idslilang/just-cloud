@@ -77,6 +77,13 @@
 				<artifactId>just-common-test</artifactId>
 				<version>${just.common.version}</version>
 			</dependency>
+
+			<dependency>
+				<groupId>com.cloud</groupId>
+				<artifactId>just-common-sentinel</artifactId>
+				<version>${just.common.version}</version>
+			</dependency>
+
 			<dependency>
 				<groupId>com.cloud</groupId>
 				<artifactId>just-upms-api</artifactId>
@@ -122,6 +129,7 @@
 				<artifactId>mybatis-plus-boot-starter</artifactId>
 				<version>${mybatis-plus.version}</version>
 			</dependency>
+
 			<!--web 模块-->
 			<dependency>
 				<groupId>org.springframework.boot</groupId>

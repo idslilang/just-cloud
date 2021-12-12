@@ -4,17 +4,13 @@ import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.reflection.MetaObject;
-
 import org.springframework.util.ClassUtils;
 
 import java.nio.charset.Charset;
 import java.time.LocalDateTime;
-import java.util.Optional;
 
 /**
  * MybatisPlus 自动填充配置
- *
- * @author L.cm
  */
 @Slf4j
 public class MybatisPlusMetaObjectHandler implements MetaObjectHandler {

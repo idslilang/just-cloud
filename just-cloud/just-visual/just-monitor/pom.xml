@@ -49,7 +49,7 @@
 		<!--断路器依赖-->
 		<dependency>
 			<groupId>com.cloud</groupId>
-			<artifactId>just-common-feign</artifactId>
+			<artifactId>just-common-sentinel</artifactId>
 		</dependency>
 		<!--undertow容器-->
 		<dependency>
