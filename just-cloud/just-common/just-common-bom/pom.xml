@@ -62,11 +62,7 @@
 				<artifactId>just-common-sasecurity</artifactId>
 				<version>${just.common.version}</version>
 			</dependency>
-			<dependency>
-				<groupId>com.cloud</groupId>
-				<artifactId>just-common-feign</artifactId>
-				<version>${just.common.version}</version>
-			</dependency>
+
 			<dependency>
 				<groupId>com.cloud</groupId>
 				<artifactId>just-common-swagger</artifactId>
