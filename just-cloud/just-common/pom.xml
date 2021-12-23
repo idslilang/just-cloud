@@ -40,6 +40,5 @@
 		<module>just-common-test</module>
 		<module>just-common-sasecurity</module>
 		<module>just-common-sentinel</module>
-		<module>just-common-gray</module>
 	</modules>
 </project>

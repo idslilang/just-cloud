@@ -94,6 +94,10 @@ public interface CommonConstants {
 	String SIZE = "size";
 
 
+	/**
+	 * header 中版本信息
+	 */
+	String VERSION = "version";
 
 
 

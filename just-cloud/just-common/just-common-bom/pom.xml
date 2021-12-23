@@ -34,11 +34,6 @@
 		<dependencies>
 			<dependency>
 				<groupId>com.cloud</groupId>
-				<artifactId>just-common-gray</artifactId>
-				<version>${just.common.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.cloud</groupId>
 				<artifactId>just-common-core</artifactId>
 				<version>${just.common.version}</version>
 			</dependency>

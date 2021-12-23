@@ -16,4 +16,6 @@ spring:
   profiles:
     active: @profiles.active@
 
-
+gateway:
+  gray:
+    enabled: true
