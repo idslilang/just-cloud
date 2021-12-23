@@ -66,15 +66,15 @@ public class GrayRoundRobinLoadBalancer extends RoundRobinLoadBalancer {
 		HttpHeaders headers = clientRequest.getHeaders();
 
 		String reqVersion = headers.getFirst(CommonConstants.VERSION);
-		if (StrUtil.isBlank(reqVersion)) {
-			return super.choose(request).block();
-		}
 
 		// 遍历可以实例元数据，若匹配则返回此实例
 		List<ServiceInstance> serviceInstanceList = instances.stream().filter(instance -> {
 			NacosServiceInstance nacosInstance = (NacosServiceInstance) instance;
 			Map<String, String> metadata = nacosInstance.getMetadata();
 			String targetVersion = MapUtil.getStr(metadata, CommonConstants.VERSION);
+			if (StrUtil.isBlank(reqVersion)) {
+				return true;
+			}
 			return reqVersion.equalsIgnoreCase(targetVersion);
 		}).collect(Collectors.toList());
 
