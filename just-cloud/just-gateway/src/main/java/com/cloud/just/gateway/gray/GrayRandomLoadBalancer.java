@@ -11,7 +11,7 @@ import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.*;
 import org.springframework.cloud.loadbalancer.core.NoopServiceInstanceListSupplier;
-import org.springframework.cloud.loadbalancer.core.RoundRobinLoadBalancer;
+import org.springframework.cloud.loadbalancer.core.RandomLoadBalancer;
 import org.springframework.cloud.loadbalancer.core.ServiceInstanceListSupplier;
 import org.springframework.http.HttpHeaders;
 import reactor.core.publisher.Mono;
@@ -24,14 +24,14 @@ import java.util.stream.Collectors;
  * 重写choose 方法
  */
 @Slf4j
-public class GrayRoundRobinLoadBalancer extends RoundRobinLoadBalancer {
+public class GrayRandomLoadBalancer extends RandomLoadBalancer {
 
 	private ObjectProvider<ServiceInstanceListSupplier> serviceInstanceListSupplierProvider;
 
 	private String serviceId;
 
-	public GrayRoundRobinLoadBalancer(ObjectProvider<ServiceInstanceListSupplier> serviceInstanceListSupplierProvider,
-									  String serviceId) {
+	public GrayRandomLoadBalancer(ObjectProvider<ServiceInstanceListSupplier> serviceInstanceListSupplierProvider,
+								  String serviceId) {
 		super(serviceInstanceListSupplierProvider, serviceId);
 		this.serviceInstanceListSupplierProvider = serviceInstanceListSupplierProvider;
 		this.serviceId = serviceId;

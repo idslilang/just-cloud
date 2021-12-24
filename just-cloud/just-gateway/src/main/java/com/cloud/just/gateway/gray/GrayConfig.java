@@ -1,6 +1,5 @@
-package com.cloud.just.gateway.config;
+package com.cloud.just.gateway.gray;
 
-import com.cloud.just.gateway.gray.GrayReactorLoadBalancerConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.cloud.loadbalancer.annotation.LoadBalancerClients;
 import org.springframework.context.annotation.Configuration;
@@ -11,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
  * 通过使用 @LoadBalancerClients 和 @LoadBalancerClient 注解可以自动生成对应的 LoadBalancerClientSpecification 进而实现公共负载均衡配置或者特定某个微服务的负载均衡配置。
  */
 @Configuration
-@LoadBalancerClients(defaultConfiguration = GrayReactorLoadBalancerConfiguration.class)
+@LoadBalancerClients(defaultConfiguration = GrayRandomLoadBalancerConfiguration.class)
 @ConditionalOnProperty(value = "gateway.gray.enabled", havingValue = "true")
 public class GrayConfig {
 }
