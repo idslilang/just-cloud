@@ -85,7 +85,6 @@ public class GrayRandomLoadBalancer extends RandomLoadBalancer {
 			return new DefaultResponse(instance);
 		}
 		else {
-			// 不存在,降级策略，使用轮询策略
 			return  new EmptyResponse();
 		}
 	}
