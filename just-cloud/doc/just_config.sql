@@ -11,7 +11,7 @@
  Target Server Version : 100419
  File Encoding         : 65001
 
- Date: 29/12/2021 18:37:58
+ Date: 29/12/2021 19:45:36
 */
 
 SET NAMES utf8mb4;
@@ -53,7 +53,6 @@ INSERT INTO `config_info` VALUES (5, 'just-monitor-dev.yml', 'DEFAULT_GROUP', 's
 INSERT INTO `config_info` VALUES (6, 'just-upms-biz-dev.yml', 'DEFAULT_GROUP', 'security:\n  oauth2:\n    client:\n    # pig\n      client-id: ENC(imENTO7M8bLO38LFSIxnzw==)\n      #pig\n      client-secret: ENC(i3cDFhs26sa2Ucrfz2hnQw==)\n      #just-client-id\n      # client-id: ENC(NBLe7s1xE6L2R+zBt1YxdhyvQBokrd1l)  \n      # #just-client-secret\n      # client-secret: ENC(pCdOZ6EM9ytj6z4XLefiOHTxa90ZwDESEwnCgCGIseE=)\n      scope: server\n\n# 数据源\nspring:\n  datasource:\n    type: com.zaxxer.hikari.HikariDataSource\n    driver-class-name: com.mysql.cj.jdbc.Driver\n    username: root\n    password: 123456\n    url: jdbc:mysql://just-mysql:3306/just?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowMultiQueries=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai\n\n\n\n      ', 'e155e672a6100cac6d77641df318a3bd', '2019-11-29 16:52:32', '2021-11-05 11:39:56', 'nacos', '127.0.0.1', '', '', '统一权限', 'null', 'null', 'yaml', 'null');
 INSERT INTO `config_info` VALUES (16, 'just-sa-oauth-dev.yml', 'DEFAULT_GROUP', '# 数据源\nspring:\n  datasource:\n    type: com.zaxxer.hikari.HikariDataSource\n    driver-class-name: com.mysql.cj.jdbc.Driver\n    username: root\n    password: 123456\n    url: jdbc:mysql://just-mysql:3306/just?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai\n\n\n', '3a047446c75a5328f050cc1ebb64abbf', '2021-11-04 01:39:46', '2021-11-05 11:40:12', 'nacos', '127.0.0.1', '', '', 'sa-oauth配置信息', '', '', 'yaml', '');
 INSERT INTO `config_info` VALUES (75, 'just-upms-biz-sentinel-flow', 'DEFAULT_GROUP', '[\n    {\n        \"resource\": \"/user/page\",\n        \"limitApp\": \"default\",\n        \"grade\": 1,\n        \"count\": 3,\n        \"strategy\": 0,\n        \"controlBehavior\": 0,\n        \"clusterMode\": false\n    }\n]', '93b4c7d31aea0606b058328df0d8f2bf', '2021-12-29 18:05:53', '2021-12-29 18:07:21', 'nacos', '127.0.0.1', '', '', '', '', '', 'json', '');
-INSERT INTO `config_info` VALUES (77, 'just-gateway-sentinel-authority', 'DEFAULT_GROUP', '[\n    {\n        \"resource\": \"/user/page\",\n        \"limitApp\": \"127.0.0.1\",\n        \"strategy\": 1\n    }\n]', '316abc7ad0c347daf98242c5c7f6aac5', '2021-12-29 18:06:52', '2021-12-29 18:11:47', 'nacos', '127.0.0.1', '', '', '', '', '', 'json', '');
 INSERT INTO `config_info` VALUES (80, 'just-upms-biz-sentinel-authority', 'DEFAULT_GROUP', '[\n    {\n        \"resource\": \"/user/page\",\n        \"limitApp\": \"127.0.0.1\",\n        \"strategy\": 1\n    }\n]', '316abc7ad0c347daf98242c5c7f6aac5', '2021-12-29 18:15:56', '2021-12-29 18:19:50', 'nacos', '127.0.0.1', '', '', '', '', '', 'json', '');
 
 -- ----------------------------
@@ -173,7 +172,7 @@ CREATE TABLE `his_config_info`  (
   INDEX `idx_gmt_create`(`gmt_create`) USING BTREE,
   INDEX `idx_gmt_modified`(`gmt_modified`) USING BTREE,
   INDEX `idx_did`(`data_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 94 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '多租户改造' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 95 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '多租户改造' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of his_config_info
@@ -218,6 +217,7 @@ INSERT INTO `his_config_info` VALUES (80, 90, 'just-upms-biz-sentinel-authority'
 INSERT INTO `his_config_info` VALUES (80, 91, 'just-upms-biz-sentinel-authority', 'DEFAULT_GROUP', '', '[\n    {\n        \"resource\": \"/user/page\",\n        \"limitApp\": \"10.144.181.191\",\n        \"strategy\": 1\n    }\n]', '9b67e3a437a5280481dfc16354a5749c', '2010-05-05 00:00:00', '2021-12-29 18:18:19', 'nacos', '127.0.0.1', 'U', '');
 INSERT INTO `his_config_info` VALUES (80, 92, 'just-upms-biz-sentinel-authority', 'DEFAULT_GROUP', '', '[\n    {\n        \"resource\": \"/user/page\",\n        \"limitApp\": \"10.144.181.191\",\n        \"strategy\": 0\n    }\n]', 'ceef5105fccc8bb632549528d82bfa9d', '2010-05-05 00:00:00', '2021-12-29 18:19:11', 'nacos', '127.0.0.1', 'U', '');
 INSERT INTO `his_config_info` VALUES (80, 93, 'just-upms-biz-sentinel-authority', 'DEFAULT_GROUP', '', '[\n    {\n        \"resource\": \"/user/page\",\n        \"limitApp\": \"10.102.224.251\",\n        \"strategy\": 1\n    }\n]', '2085d53dcc3e907ac4ccdb196e55ed83', '2010-05-05 00:00:00', '2021-12-29 18:19:50', 'nacos', '127.0.0.1', 'U', '');
+INSERT INTO `his_config_info` VALUES (77, 94, 'just-gateway-sentinel-authority', 'DEFAULT_GROUP', '', '[\n    {\n        \"resource\": \"/user/page\",\n        \"limitApp\": \"127.0.0.1\",\n        \"strategy\": 1\n    }\n]', '316abc7ad0c347daf98242c5c7f6aac5', '2010-05-05 00:00:00', '2021-12-29 19:35:17', NULL, '127.0.0.1', 'D', '');
 
 -- ----------------------------
 -- Table structure for permissions
@@ -296,6 +296,6 @@ CREATE TABLE `users`  (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES ('nacos', '$2a$10$EuWPZHzz32dJN7jexM34MOeYirDdFAZm2kuWj7VEOJhhZkDrxfvUu', 1);
+INSERT INTO `users` VALUES ('nacos', '$2a$10$ezMnkk99aBJBlowrSXq.muIAO15bATz9sS5Muqzf5W61biYlwEulW', 1);
 
 SET FOREIGN_KEY_CHECKS = 1;

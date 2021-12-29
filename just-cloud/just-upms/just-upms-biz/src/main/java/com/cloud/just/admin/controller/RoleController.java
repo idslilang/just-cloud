@@ -29,6 +29,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author lengleng
@@ -105,7 +106,7 @@ public class RoleController {
 	 * @return 分页对象
 	 */
 	@GetMapping("/page")
-	public R getRolePage(Page page) {
+	public R getRolePage(Page page) throws InterruptedException {
 		return R.ok(sysRoleService.page(page, Wrappers.emptyWrapper()));
 	}
 
