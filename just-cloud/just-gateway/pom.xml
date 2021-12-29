@@ -88,10 +88,10 @@
 			<artifactId>captcha-spring-boot-starter</artifactId>
 			<version>${captcha.version}</version>
 		</dependency>
-		<!-- 工具包依赖 -->
+		<!--引入限流-->
 		<dependency>
 			<groupId>com.cloud</groupId>
-			<artifactId>just-common-core</artifactId>
+			<artifactId>just-common-sentinel</artifactId>
 		</dependency>
 		<!--接口文档-->
 		<dependency>
