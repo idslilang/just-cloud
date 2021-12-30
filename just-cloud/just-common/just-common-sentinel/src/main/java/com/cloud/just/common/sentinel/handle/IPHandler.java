@@ -17,7 +17,6 @@ public class IPHandler implements RequestOriginParser {
 		// 判断header中是否有此参数
 
 		String origin = ServletUtil.getClientIP(request);
-
 		if (StrUtil.isBlank(origin)){
 			origin = request.getHeader("origin");
 			// 判断请求参数中是否有此参数

@@ -33,6 +33,9 @@ import com.pig4cloud.plugin.excel.annotation.RequestExcel;
 import com.pig4cloud.plugin.excel.annotation.ResponseExcel;
 import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -47,7 +50,9 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/user")
 @Api(value = "user", tags = "用户管理模块")
+@Slf4j
 public class UserController {
+	private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
 
 	private final SysUserService userService;
 
@@ -186,6 +191,7 @@ public class UserController {
 	 */
 	@GetMapping("/page")
 	public R getUserPage(Page page, UserDTO userDTO) {
+		LOGGER.info("nihao---------------->{}",userDTO);
 		return R.ok(userService.getUserWithRolePage(page, userDTO));
 	}
 
