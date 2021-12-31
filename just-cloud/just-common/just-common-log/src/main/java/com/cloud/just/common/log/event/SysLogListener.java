@@ -1,13 +1,14 @@
 package com.cloud.just.common.log.event;
 
-import com.cloud.just.admin.api.entity.SysLog;
-import com.cloud.just.admin.api.feign.RemoteLogService;
-import com.cloud.just.common.core.constant.SecurityConstants;
+import com.cloud.just.common.log.entity.Log;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.event.EventListener;
 import org.springframework.core.annotation.Order;
 import org.springframework.scheduling.annotation.Async;
+
 
 /**
  *异步监听日志事件
@@ -16,14 +17,14 @@ import org.springframework.scheduling.annotation.Async;
 @RequiredArgsConstructor
 public class SysLogListener {
 
-	private final RemoteLogService remoteLogService;
+	Logger logger = LoggerFactory.getLogger(SysLogListener.class);
 
 	@Async
 	@Order
 	@EventListener(SysLogEvent.class)
 	public void saveSysLog(SysLogEvent event) {
-		SysLog sysLog = (SysLog) event.getSource();
-		remoteLogService.saveLog(sysLog, SecurityConstants.FROM_IN);
+		Log sysLog = (Log) event.getSource();
+		logger.info("syslog----> {}",sysLog);
 	}
 
 }

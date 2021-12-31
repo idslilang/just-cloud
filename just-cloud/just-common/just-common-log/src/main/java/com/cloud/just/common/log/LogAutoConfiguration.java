@@ -1,6 +1,5 @@
 package com.cloud.just.common.log;
 
-import com.cloud.just.admin.api.feign.RemoteLogService;
 import com.cloud.just.common.log.aspect.SysLogAspect;
 import com.cloud.just.common.log.event.SysLogListener;
 import lombok.RequiredArgsConstructor;
@@ -19,8 +18,8 @@ import org.springframework.scheduling.annotation.EnableAsync;
 public class LogAutoConfiguration {
 
 	@Bean
-	public SysLogListener sysLogListener(RemoteLogService remoteLogService) {
-		return new SysLogListener(remoteLogService);
+	public SysLogListener sysLogListener() {
+		return new SysLogListener();
 	}
 
 	@Bean

@@ -30,25 +30,18 @@
 	<description>just 日志服务</description>
 
 
+
 	<dependencies>
 		<!--工具类核心包-->
 		<dependency>
 			<groupId>com.cloud</groupId>
 			<artifactId>just-common-core</artifactId>
-			<version>3.3.3</version>
-		</dependency>
-		<!--UPMS接口模块-->
-		<dependency>
-			<groupId>com.cloud</groupId>
-			<artifactId>just-upms-api</artifactId>
-			<version>3.3.3</version>
 		</dependency>
 
-<!--		<dependency>-->
-<!--			<groupId>com.yomahub</groupId>-->
-<!--			<artifactId>tlog-all-spring-boot-starter</artifactId>-->
-<!--			<version>1.3.6</version>-->
-<!--		</dependency>-->
+		<dependency>
+			<groupId>com.yomahub</groupId>
+			<artifactId>tlog-all-spring-boot-starter</artifactId>
+		</dependency>
 
 	</dependencies>
 </project>

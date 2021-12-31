@@ -1,6 +1,6 @@
 package com.cloud.just.common.log.event;
 
-import com.cloud.just.admin.api.entity.SysLog;
+import com.cloud.just.common.log.entity.Log;
 import org.springframework.context.ApplicationEvent;
 
 /**
@@ -8,7 +8,7 @@ import org.springframework.context.ApplicationEvent;
  */
 public class SysLogEvent extends ApplicationEvent {
 
-	public SysLogEvent(SysLog source) {
+	public SysLogEvent(Log source) {
 		super(source);
 	}
 
