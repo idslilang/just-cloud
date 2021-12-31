@@ -98,7 +98,10 @@
 			<groupId>com.cloud</groupId>
 			<artifactId>just-common-swagger</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>com.cloud</groupId>
+			<artifactId>just-common-log</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
