@@ -3,6 +3,7 @@ package com.cloud.just.common.log.util;
 import cn.hutool.core.util.URLUtil;
 import cn.hutool.extra.servlet.ServletUtil;
 import cn.hutool.http.HttpUtil;
+import com.alibaba.fastjson.JSON;
 import com.cloud.just.common.log.entity.Log;
 import lombok.experimental.UtilityClass;
 import org.springframework.http.HttpHeaders;
@@ -31,7 +32,7 @@ public class SysLogUtils {
 		sysLog.setRequestUri(URLUtil.getPath(request.getRequestURI()));
 		sysLog.setMethod(request.getMethod());
 		sysLog.setUserAgent(request.getHeader(HttpHeaders.USER_AGENT));
-		sysLog.setParams(HttpUtil.toParams(request.getParameterMap()));
+		sysLog.setParams(JSON.toJSONString(request.getParameterMap()));
 		sysLog.setServiceId(getClientId(request));
 		return sysLog;
 	}

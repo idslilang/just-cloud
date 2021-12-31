@@ -146,16 +146,7 @@
 				<artifactId>tlog-all-spring-boot-starter</artifactId>
 				<version>${t-log.version}</version>
 			</dependency>
-			<dependency>
-				<groupId>com.yomahub</groupId>
-				<artifactId>tlog-gateway-spring-boot-starter</artifactId>
-				<version>${t-log.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.yomahub</groupId>
-				<artifactId>tlog-web-spring-boot-starter</artifactId>
-				<version>${t-log.version}</version>
-			</dependency>
+
 		</dependencies>
 	</dependencyManagement>
 

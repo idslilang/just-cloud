@@ -6,6 +6,7 @@ import cn.dev33.satoken.id.SaIdUtil;
 import cn.dev33.satoken.stp.StpUtil;
 import cn.dev33.satoken.util.SaResult;
 import com.cloud.just.common.core.constant.CommonConstants;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,6 +16,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * Sa-Token 权限认证 配置类
  */
 @Configuration
+@Slf4j
 public class SaTokenConfigure implements WebMvcConfigurer {
 
 	@Autowired
