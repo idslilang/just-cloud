@@ -15,14 +15,14 @@
 					converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter"/>
 	<!-- Console log output -->
 	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
-<!--		&lt;!&ndash;彩色日志&ndash;&gt;-->
-<!--		<encoder class="com.yomahub.tlog.core.enhance.logback.AspectLogbackEncoder">-->
-<!--			<pattern>${CONSOLE_LOG_PATTERN}</pattern>-->
-<!--		</encoder>-->
-
+		<!--彩色日志-->
 		<encoder class="com.yomahub.tlog.core.enhance.logback.AspectLogbackEncoder">
-			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+			<pattern>${CONSOLE_LOG_PATTERN}</pattern>
 		</encoder>
+
+<!--		<encoder class="com.yomahub.tlog.core.enhance.logback.AspectLogbackEncoder">-->
+<!--			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>-->
+<!--		</encoder>-->
 	</appender>
 
 	<!-- Log file debug output -->
