@@ -52,7 +52,6 @@ import java.util.List;
 @Api(value = "user", tags = "用户管理模块")
 @Slf4j
 public class UserController {
-	private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
 
 	private final SysUserService userService;
 
@@ -191,7 +190,9 @@ public class UserController {
 	 */
 	@GetMapping("/page")
 	public R getUserPage(Page page, UserDTO userDTO) {
-		LOGGER.info("nihao---------------->{}",userDTO);
+		log.info("nihao---------------->{}",userDTO);
+		log.info("nihao---------------->{}",userDTO);
+
 		return R.ok(userService.getUserWithRolePage(page, userDTO));
 	}
 

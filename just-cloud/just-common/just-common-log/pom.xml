@@ -30,7 +30,6 @@
 	<description>just 日志服务</description>
 
 
-
 	<dependencies>
 		<!--工具类核心包-->
 		<dependency>

@@ -31,6 +31,7 @@ public class ApiLoggingFilter implements GlobalFilter, Ordered {
 		if (log.isDebugEnabled()) {
 			log.debug(info);
 		}
+		log.info("fsdafsdafsdafasdfasdf--------------------------->");
 		exchange.getAttributes().put(START_TIME, System.currentTimeMillis());
 		return chain.filter(exchange).then(Mono.fromRunnable(() -> {
 			Long startTime = exchange.getAttribute(START_TIME);

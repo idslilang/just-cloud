@@ -18,4 +18,5 @@ spring:
 
 gateway:
   gray:
-    enabled: true
+    enabled: false
+

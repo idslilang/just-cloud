@@ -1,11 +1,7 @@
 package com.cloud.just.common.log.entity;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 
 /**
@@ -38,7 +34,6 @@ public class Log {
 	/**
 	 * 编号
 	 */
-	@JsonSerialize(using = ToStringSerializer.class)
 	private Long id;
 
 	/**
