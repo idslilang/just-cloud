@@ -17,6 +17,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @Configuration(proxyBeanMethods = false)
 public class LogAutoConfiguration {
 
+
 	@Bean
 	public SysLogListener sysLogListener() {
 		return new SysLogListener();

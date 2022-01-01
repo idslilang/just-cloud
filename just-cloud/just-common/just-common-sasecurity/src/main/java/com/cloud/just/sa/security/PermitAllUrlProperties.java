@@ -1,4 +1,4 @@
-package com.cloud.just.sa.security.config;
+package com.cloud.just.sa.security;
 
 import cn.hutool.core.util.ReUtil;
 import com.cloud.just.sa.annotation.Inner;
@@ -12,7 +12,6 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.core.annotation.AnnotationUtils;
-import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
@@ -26,7 +25,6 @@ import java.util.regex.Pattern;
 @RefreshScope
 @Slf4j
 @ConfigurationProperties(prefix = "security.oauth2.ignore")
-@Component
 public class PermitAllUrlProperties implements InitializingBean, ApplicationContextAware {
 
 	private static final Pattern PATTERN = Pattern.compile("\\{(.*?)\\}");

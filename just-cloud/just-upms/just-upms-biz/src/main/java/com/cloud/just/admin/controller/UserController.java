@@ -189,6 +189,7 @@ public class UserController {
 	@GetMapping("/page")
 	@SysLog("用户信息")
 	public R getUserPage(Page page, UserDTO userDTO) {
+		log.info("-------------> {}",userDTO);
 		return R.ok(userService.getUserWithRolePage(page, userDTO));
 	}
 
