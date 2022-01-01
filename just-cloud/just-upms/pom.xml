@@ -32,5 +32,6 @@
 	<modules>
 		<module>just-upms-api</module>
 		<module>just-upms-biz</module>
+		<module>just-upms-minapp</module>
 	</modules>
 </project>

@@ -1,6 +1,5 @@
 package com.cloud.just.admin.api.feign;
 
-import com.cloud.just.admin.api.component.FeignInterceptor;
 import com.cloud.just.admin.api.dto.UserInfo;
 import com.cloud.just.admin.api.entity.SysUser;
 import com.cloud.just.admin.api.feign.factory.RemoteUserServiceFallbackFactory;
@@ -11,10 +10,8 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @FeignClient(contextId = "remoteUserService",
-		configuration = FeignInterceptor.class ,       // 请求拦截器 （关键代码）
 		value = ServiceNameConstants.UMPS_SERVICE,
 		fallbackFactory = RemoteUserServiceFallbackFactory.class)
 public interface RemoteUserService {

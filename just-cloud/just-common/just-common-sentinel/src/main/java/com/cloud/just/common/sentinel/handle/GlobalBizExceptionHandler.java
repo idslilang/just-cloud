@@ -3,7 +3,6 @@ package com.cloud.just.common.sentinel.handle;
 import com.alibaba.csp.sentinel.Tracer;
 import com.cloud.just.common.core.util.R;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
@@ -20,7 +19,6 @@ import java.util.List;
 @Slf4j
 @RestController
 @RestControllerAdvice
-@ConditionalOnProperty(name = {"feign.sentinel.global.exception"},havingValue = "true")
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class GlobalBizExceptionHandler {
 

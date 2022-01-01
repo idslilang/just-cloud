@@ -28,7 +28,7 @@ public interface SecurityConstants {
 	/**
 	 * 标志
 	 */
-	String FROM = "from";
+	String FROM = "comefrom";
 
 	/**
 	 * 默认登录URL

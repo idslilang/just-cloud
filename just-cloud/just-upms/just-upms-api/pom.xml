@@ -21,11 +21,6 @@
 			<groupId>com.cloud</groupId>
 			<artifactId>just-common-core</artifactId>
 		</dependency>
-		<!--feign 依赖-->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-openfeign</artifactId>
-		</dependency>
 		<!--断路器依赖-->
 		<dependency>
 			<groupId>com.cloud</groupId>

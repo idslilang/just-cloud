@@ -6,7 +6,6 @@ import com.cloud.just.common.core.constant.SecurityConstants;
 import com.cloud.just.common.core.exception.JustDeniedException;
 import com.cloud.just.sa.annotation.Inner;
 import lombok.RequiredArgsConstructor;
-import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -32,7 +31,7 @@ public class JustSecurityInnerAspect implements Ordered {
 	@Around("@within(inner) || @annotation(inner)")
 	public Object around(ProceedingJoinPoint point, Inner inner) throws Throwable {
 		// 实际注入的inner实体由表达式后一个注解决定，即是方法上的@Inner注解实体，若方法上无@Inner注解，则获取类上的
-		if (inner == null) {
+			if (inner == null) {
 			Class<?> clazz = point.getTarget().getClass();
 			inner = AnnotationUtils.findAnnotation(clazz, Inner.class);
 		}

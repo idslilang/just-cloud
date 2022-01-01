@@ -12,7 +12,7 @@ import java.util.Map;
 /**
  * 日志记录
  */
-@FeignClient(contextId = "remoteTokenService", value = ServiceNameConstants.AUTH_SERVICE,
+@FeignClient(contextId = "remoteTokenService", value = ServiceNameConstants.UMPS_SERVICE,
 		fallbackFactory = RemoteTokenServiceFallbackFactory.class)
 public interface RemoteTokenService {
 

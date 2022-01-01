@@ -10,7 +10,7 @@
 		<version>3.3.3</version>
 	</parent>
 
-	<artifactId>just-upms-biz</artifactId>
+	<artifactId>just-upms-minapp</artifactId>
 	<packaging>jar</packaging>
 
 	<description>just 通用用户权限管理系统业务处理模块</description>
